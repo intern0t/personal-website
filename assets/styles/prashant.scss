@@ -1,3 +1,8 @@
+---
+---
+
+@charset "utf-8";
+
 /**
  * Copyright (c) 2019, Prashant Shrestha
  * Document: prashant.scss
@@ -30,16 +35,21 @@ body {
 
             &-logo {
                 padding: 20px;
-                h1 {
+
+                a,
+                a:visited {
+                    text-decoration: none;
+                    text-transform: none;
                     @include Font($defaultFontFamily);
                     font-weight: bold;
                     text-align: center;
                     letter-spacing: 2px;
-                    padding: 7px 5px;
+                    padding: 6px;
                     border: 2px solid $primaryForeground;
                     @include BorderRadius(2px, all);
                     cursor: pointer;
                     @include Transition(border, 0.4s, ease-in-out);
+                    color: $primaryForeground;
 
                     &:hover {
                         border: 2px solid $primaryIndexed;
@@ -113,10 +123,91 @@ body {
 
         .container {
             flex: 1;
-            height: 100%;
             padding: 20px;
             background: $primaryGray;
             color: $primaryForeground;
+            overflow: auto;
+
+            &-blog{
+                @include Flex(row);
+                flex-flow: wrap;
+                justify-content: center;
+                align-content: stretch;
+
+                &-entry {
+                    flex: 0 0 47%;
+                    background: #232323;
+                    margin: 10px;
+                    @include BorderRadius(3px, all);
+                    @include Box-Shadow(0px 0px 5px 1px rgba($primaryBackground, 0.75));
+
+                    &-inner{
+                        @include Flex(row);
+                        justify-content: flex-start;
+                        align-items: center;
+                        align-content: center;
+                        padding: 20px;
+
+                        &-icon{
+                            margin: 20px;
+                            font-size: $defaultFontSize + 10;
+                            color: $colorGray;
+                        }
+
+                        &-entry{
+                            flex: 1;
+                            padding: 10px;
+
+                            .title{
+                                @include Font($defaultFontFamily);
+                                font-size: $defaultFontSize + 3;
+                                line-height: $defaultFontSize + 10;
+                                color: $primaryForeground;
+                                text-decoration: none;
+                                letter-spacing: .5px;
+                                margin: 10px 0;
+                                @include Transition(color, .3s, ease-in-out);
+
+                                &:hover{
+                                    color: $colorDarkCrimson;
+                                }
+                            }
+
+                            p{
+                                @include Font($defaultFontFamily);
+                                font-size: $defaultFontSize;
+                                line-height: $defaultFontSize + 5;
+                                letter-spacing: .5px;
+                                margin: 10px 0;
+                                color: $colorGray;
+
+                                a,a:visited{
+                                    color: $colorLightPowderedBlue;
+                                    text-decoration: none;
+                                    border-bottom: 2px solid transparent;
+
+                                    &:hover{
+                                        border-bottom: 2px solid rgba($colorLightPowderedBlue, .8);
+                                    }
+                                }
+                            }
+
+                            &-post-date{
+                                @include Flex(row);
+                                justify-content: flex-start;
+                                align-content: center;
+                                align-items: center;
+                                margin: 20px 0;
+                                color: rgba($colorGray, .6);
+
+                                time{
+                                    margin-left: 7px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
