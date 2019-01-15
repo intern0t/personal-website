@@ -7,6 +7,10 @@
 
 $Black: #000000;
 $primaryBackground: #181818;
-$primaryForeground: #FFFFFF;
-$primaryGray: #1C1C1C;
-$primaryIndexed: #B13631; // #2ba9fd;
+$primaryForeground: #ffffff;
+$primaryGray: #1c1c1c;
+$colorCrimson: #dc143c;
+$colorDarkCrimson: #B13631;
+$colorDarkPowderedBlue: #003893;
+$colorLightPowderedBlue: #0c84bb;
+$primaryIndexed: $colorDarkCrimson; // ; // #2ba9fd;

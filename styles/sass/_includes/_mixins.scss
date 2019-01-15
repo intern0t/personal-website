@@ -53,3 +53,8 @@
     -webkit-transform: rotate($deg);
     transform: rotate($deg);
 }
+
+@mixin Transition($type, $delay, $transitionType) {
+    -webkit-transition: $type $delay $transitionType;
+    transition: $type $delay $transitionType;
+}
