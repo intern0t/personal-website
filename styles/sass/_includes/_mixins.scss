@@ -1,0 +1,60 @@
+/**
+ * Copyright (c) 2019, Prashant Shrestha
+ * Document: mixins.scss
+ * Developer: Prashant Shrestha
+ * Date: Tue Jan 15 08:20:30 EST 2019
+ */
+
+@mixin Smoothing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "pnum";
+    font-feature-settings: "pnum";
+    font-variant-numeric: proportional-nums;
+}
+
+@mixin Font($fontFamily) {
+    font-family: $fontFamily;
+    @include Smoothing;
+}
+
+@mixin Flex($dir) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $dir;
+    flex-direction: $dir;
+}
+
+@mixin BorderRadius($radii, $whichSides: all) {
+    @if $whichSides == "all" {
+        border-radius: $radii;
+    } @else if $whichSides == "left" {
+        border-top-left-radius: $radii;
+        border-bottom-left-radius: $radii;
+    } @else if $whichSides == "right" {
+        border-top-right-radius: $radii;
+        border-bottom-right-radius: $radii;
+    } @else if $whichSides == "top" {
+        border-top-left-radius: $radii;
+        border-top-right-radius: $radii;
+    }
+}
+
+@mixin Box-Shadow($content...) {
+    -webkit-box-shadow: $content;
+    box-shadow: $content;
+}
+
+@mixin Transform($deg) {
+    -webkit-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+@mixin Transition($type, $delay, $transitionType) {
+    -webkit-transition: $type $delay $transitionType;
+    transition: $type $delay $transitionType;
+}
