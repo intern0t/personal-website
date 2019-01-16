@@ -2,9 +2,6 @@
 layout: default
 ---
 
-<!-- <div class="container-blog-header">
-    <h1><i class="fas fa-book"></i> Blog</h1>
-</div> -->
 <div class="container">
     <article class="container-post">
         <header class="container-post-header">
@@ -31,11 +28,27 @@ layout: default
                 >
                 {%- endif -%}
             </p>
+
+            <div class="post-misc-meta">
+                <!-- <h1><i class="fas fa-book"></i> Blog</h1> -->
+                {% assign categories = page.categories %} {% if categories != ""
+                %}
+                <div class="post-misc-meta-categories">
+                    {% for category in categories %} 
+                        <span><i class="fas fa-archive"></i> {{ category | strip }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %} {% assign tags = page.tags %} {% if tags != "" %}
+                <div class="post-misc-meta-tags">
+                    {% for tag in
+                    tags %}<span><i class="fas fa-tag"></i> {{ tag | strip }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
         </header>
 
-        <div class="post-content" itemprop="articleBody">
-            {{ content }}
-        </div>
+        <div class="post-content" itemprop="articleBody">{{ content }}</div>
 
         {%- if site.disqus.shortname -%} {%- include disqus_comments.html -%}
         {%- endif -%}
