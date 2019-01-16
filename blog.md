@@ -23,11 +23,18 @@ pagination:
                     <p>{{ post.excerpt }}</p>
                     {% assign date_format = site.minima.date_format | default: "%b %d %Y" %}
                     <div class="container-blog-entry-inner-entry-post-date">
-                        <i class="fas fa-calendar-plus"></i>
-                        <time datetime="{{ page.date | date_to_rfc822 }}" itemprop="datePublished">
-                            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %} 
-                            {{ post.date | date: date_format }}
-                        </time>
+                        <div>
+                            {% for category in post.categories %} 
+                                <span><i class="fas fa-archive"></i> {{ category | strip }}</span>
+                            {% endfor %}
+                        </div>
+                        <div>
+                            <i class="fas fa-calendar-plus"></i>
+                            <time datetime="{{ page.date | date_to_rfc822 }}" itemprop="datePublished">
+                                {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %} 
+                                {{ post.date | date: date_format }}
+                            </time>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,4 +43,5 @@ pagination:
 </div>
 
 <!-- Pagination -->
+
 {% include pagination.html %}
