@@ -6,6 +6,9 @@ pagination:
     enabled: true
 ---
 
+<div class="container-blog-header">
+    <h1><i class="fas fa-book"></i> Blog</h1>
+</div>
 <div class="container-blog">
     {% for post in paginator.posts %}
         <div class="container-blog-entry">
@@ -31,3 +34,6 @@ pagination:
         </div>
     {% endfor %}
 </div>
+
+<!-- Pagination -->
+{% include pagination.html %}

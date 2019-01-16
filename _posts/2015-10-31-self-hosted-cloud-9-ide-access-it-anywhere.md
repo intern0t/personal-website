@@ -5,22 +5,19 @@ author: Prashant Shrestha
 date: 2015-10-31 13:38:33 -400
 categories: server
 tags: server hosted cloud ide advanced remote code program develop development
+poster: https://i.imgur.com/4SZb2Bh.png
 ---
-
-<div class="poster" markdown="1">
-[![Image](https://i.imgur.com/4SZb2Bh.png)](https://i.imgur.com/4SZb2Bh.png "Cloud 9"){:data-rel="lightcase"}
-</div>
 
 Let's keep this simple and precise, as a developer, you cannot have your workplace everywhere, with an increase in the cloud project repositories such as Github and Bitbucket which however requires you to have an access to an IDE or a shell in order to sync your file which can be of a hassle for some.
 
 This is where your private Cloud IDE comes into play and is very useful if you have a budget server such as mine and a fair amount of bandwidth. 
-
+<!--excerpt-->
 A small excerpt from Wikipedia regarding the [**Web integrated development environment**](https://en.wikipedia.org/wiki/Web_integrated_development_environment) might clarify my words better.
 
 >A web integrated development environment (Web IDE or WIDE), also known as cloud IDE, is a browser based IDE that allows for software development or web development. A web IDE can be accessed from a web browser, such as Google Chrome or Internet Explorer, allowing for a portable work environment. A web IDE does not usually contain all of the same features as a traditional, or desktop, IDE, although all of the basic IDE features, such as syntax highlighting, are typically present. ([Source](https://en.wikipedia.org/wiki/Web_integrated_development_environment))
 
 I've been using my private cloud IDE for a while and as a newbie, I can already see the pros-&-cons.
-<!--excerpt-->
+
 #### Online IDE?
 
 Yes, there are many online cloud IDE which provide you with a free workspace with fair amount of hardware specification. Some are listed below and you can check it out yourselves.

@@ -28,7 +28,7 @@ Don't mind the comments, makes it easier for us later in the future if any chang
 
 ##### SASS
 
-{% highlight sass %}
+{% highlight scss %}
 .toTop{
     width: 50px;
     height: 30px;
@@ -59,7 +59,7 @@ Don't mind the comments, makes it easier for us later in the future if any chang
 
 A little [mixin](http://sass-lang.com/guide#topic-6) to handle our `border-radius` in various browsers.
 
-{% highlight sass %}
+{% highlight scss %}
 @mixin border-left-radius(3px) {
     -webkit-border-bottom-left-radius: $radius;
     -webkit-border-top-left-radius: $radius;

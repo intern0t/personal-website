@@ -5,11 +5,8 @@ author: Prashant Shrestha
 date: 2017-10-23 18:09:27 -400 
 categories: development
 tags: c# csharp develop .net visualstudio spotify music capture file obs recorder stream
+poster: https://i.imgur.com/Ipq5fKi.png
 ---
-
-<div class="poster" markdown="1">
-[![Poster](https://i.imgur.com/Ipq5fKi.png)](https://i.imgur.com/Ipq5fKi.png){:data-rel="lightcase"}
-</div>
 
 Most of us, an avid music listeners out there are familiar with [Spotify](http://www.spotify.com/), a subscription based music streaming service with large collection of music. I listen to relaxing and focus music while developing or playing games. A distant friend, a game streamer insisted that I help him out with setting [Open Broadcaster Software (OBS)](https://obsproject.com/) to dispaly the music that he plays in his stream. After couple exchange of words, he said that some of his viewers gave him this idea, maybe they liked the music but had difficulty finding the title.
 

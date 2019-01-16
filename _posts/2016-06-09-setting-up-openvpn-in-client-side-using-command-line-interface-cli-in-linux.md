@@ -5,11 +5,8 @@ author: Prashant Shrestha
 date: 2016-06-09 18:42:27 -400
 categories: security
 tags: openvpn encryption traffic network local wifi aes ovpn config setup security
+poster: https://i.imgur.com/CLOpk3A.jpg
 ---
-
-<div class="poster" markdown="1">
-[![Image](https://i.imgur.com/CLOpk3A.jpg)](https://i.imgur.com/CLOpk3A.jpg "Credits to Privatoria."){:data-rel="lightcase"}
-</div>
 
 As many citizens became knowledgeable about privacy, VPN, private network, tunnels, why, how, disadvantages and all, the VPN companies developed advanced client software to make client's work easier, especially for Windows platform but for Linux platform with no Network Manager or simple CLI fans out there have to go through painful steps to setup a VPN.
 

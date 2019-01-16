@@ -26,9 +26,16 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+kramdown:
+ input: GFM
+ auto_ids: true
+ syntax_highlighter: rogue
+
 plugins:
   - jekyll-feed
   - jekyll-paginate-v2
+
+excerpt_separator: "<!--excerpt-->"
 
 pagination:
   enabled: true

@@ -8,17 +8,18 @@ tags: setup server seedbox torrent private bittorrent client
 ---
 
 > A seedbox is a remote server hosted in a high-bandwidth data center used for the safely uploading and downloading of digital files. These speeds range from 100Mbps (8MB/s) to 10Gbps (1250MB/s). Persons with access to a seedbox can download these files to their personal computers anonymously. (Source: [Wikipedia](https://en.wikipedia.org/wiki/Seedbox"))
+> 
+Basically, in clear and understandable words, Seedbox is a server used for **Peer-to-Peer (P2P) transfers** with the use of [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent") protocol. Seedbox, what it is and how powerful it is, is determined by the hardware it runs on, how secure (anonymous) it is and how **deaf** that hosting company is.
 
+<!--excerpt-->
 <div class="poster" markdown="1">
 [![Image](https://i.imgur.com/k28EhRc.jpg)](https://i.imgur.com/k28EhRc.jpg "Server"){:data-rel="lightcase"}
 </div>
 
-Basically, in clear and understandable words, Seedbox is a server used for **Peer-to-Peer (P2P) transfers** with the use of [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent") protocol. Seedbox, what it is and how powerful it is, is determined by the hardware it runs on, how secure (anonymous) it is and how **deaf** that hosting company is.
-
 Seedbox is just a server with a certain purpose and protocol, seed the files you have stored in your server which is also known as pirating in the eyes of law makers and well, **pirates**!
 
 Not to call myself a pirate, I try my very best to refrain from brushing against the law and the law makers, as a tech fanatic and a student pursuing Engineering & Programming field, Seedbox **piqued** my interest.
-<!--excerpt-->
+
 In the past, I've downloaded large files such as Linux installation files, gigs and gigs of data but one thing I noticed, torrents makes the download so much faster than the regular FTP/HTTP(s) downloads.
 
 Another thing which I noticed is quite important and could make BitTorrent protocol future of Asynchronous downloads is that it checks for chunks and chunks of data before and after you download the files which makes it certain that you shall not end up with the corrupt data or files. I don't think FTP/HTTP(s) downloads does that, the **verification** of files & their check sums.
