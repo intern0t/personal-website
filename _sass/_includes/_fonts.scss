@@ -5,12 +5,14 @@
  * Date: Tue Jan 15 08:20:30 EST 2019
  */
 
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Rosario');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Rosario|Inconsolata');
 
 $Rosario: 'Rosario', sans-serif;
 $CrimsonText: 'Crimson Text', serif;
+$Inconsolata: 'Inconsolata', monospace;
 
 $defaultFontFamily: $Rosario;
 $_defaultFontFamily: $CrimsonText;
+$defaultCodeFontFamily: $Inconsolata;
 
 $defaultFontSize: 14px;

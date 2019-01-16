@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+{% include head.html %}
+<body>
+    <div class="main-wrapper" aria-label="Content">
+        {% include sidebar.html %} 
+        {{ content }}
+
+        <!-- Scroll to TOP!
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <a class="toTop" href="#top" title="Scroll to Top!">
+            <span class="icon-arrow-shuffle"></span>
+        </a>
+        <a class="pinned-down" href="#" title="Toggle Theme">
+            <span class="icon-lamp1 themeToggleButton"></span>
+        </a>
+    </div>
+
+    <!-- Important Scripts -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ "assets/js/lightcase.js " | relative_url }}"></script>
+    {% include scripts.html %}
+</body>
+</html>
