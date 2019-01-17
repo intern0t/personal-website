@@ -8,7 +8,13 @@ pagination:
 
 <div class="container-blog-header">
     <h1><i class="fas fa-book"></i> Blog</h1>
+    <h1>
+        <a href="#" class="menu-toggle" title="Toggle Menu">
+            <i class="fas fa-ellipsis-v"></i>
+        </a>
+    </h1>
 </div>
+
 <div class="container-blog">
     {% for post in paginator.posts %}
         <div class="container-blog-entry">
@@ -40,6 +46,25 @@ pagination:
             </div>
         </div>
     {% endfor %}
+</div>
+
+<!-- More Menu ;) -->
+<div class="container-blog-menu">
+    <h1 class="menu-toggle"><i class="far fa-times-circle"></i></h1>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/library">Library</a>
+        </li>
+        <li>
+            <a href="/archive">Archive</a>
+        </li>
+        <li>
+            <a href="/search">Search</a>
+        </li>
+    </ul>
 </div>
 
 <!-- Pagination -->

@@ -36,7 +36,7 @@ body {
 
             &-logo {
                 padding: 20px;
-                margin: 10px 0;
+                margin: 10px 0 0 0;
 
                 a,
                 a:visited {
@@ -131,7 +131,9 @@ body {
             overflow: auto;
 
             &-blog-header {
+                @include Flex(row);
                 padding: 20px;
+                justify-content: space-between;
 
                 h1 {
                     @include Font($defaultFontFamily);
@@ -144,6 +146,10 @@ body {
                     i[class^="fa"] {
                         margin-right: 7px;
                     }
+                }
+
+                .menu-toggle {
+                    color: $primaryForeground;
                 }
             }
 
@@ -549,6 +555,7 @@ body {
                     margin: 10px;
                     @include Flex(column);
                     @include BorderRadius(3px, all);
+                    @include Transition(box-shadow, 0.3s, ease-in-out);
 
                     &-poster {
                         background-size: cover;
@@ -566,7 +573,7 @@ body {
                     }
 
                     &-info {
-                        padding: 10px;
+                        padding: 15px;
                         flex: 1;
 
                         h1 {
@@ -650,6 +657,67 @@ body {
                             .time {
                                 color: $colorGray;
                                 padding: 5px;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        @include Box-Shadow(0px 0px 5px 0px rgba($Black, 0.3));
+                    }
+                }
+            }
+
+            &-blog-menu {
+                width: 270px;
+                height: 100%;
+                background: $primaryBackground;
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                margin: 0px;
+                margin-right: -275px;
+                @include Flex(column);
+                transition: all 0.3s ease-in;
+                @include Box-Shadow(-1px 0px 10px 1px $Black);
+
+                h1 {
+                    font-size: $defaultFontSize + 15;
+                    padding: 20px;
+                    cursor: pointer;
+                }
+
+                ul {
+                    list-style-type: none;
+                    width: 100%;
+                    @include Flex(column);
+                    align-content: center;
+                    align-items: center;
+                    margin: 20px 0;
+
+                    li {
+                        width: 100%;
+
+                        a,
+                        a:visited {
+                            display: block;
+                            color: $primaryForeground;
+                            text-decoration: none;
+                            font-size: $defaultFontSize + 5;
+                            @include Font($defaultFontFamily);
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                            padding: 20px;
+                            @include Transition(background, 0.4s, ease-in-out);
+                            text-align: center;
+
+                            i[class^="fa"] {
+                                margin-right: 10px;
+                            }
+
+                            &:hover {
+                                background: rgba($colorDarkCrimson, 0.2);
                             }
                         }
                     }
