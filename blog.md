@@ -48,11 +48,12 @@ pagination:
     {% endfor %}
 </div>
 
-<!-- More Menu ;) -->
+<!-- More Menu (Blog specific) -->
 <div class="container-blog-menu">
     <h1 class="menu-toggle"><i class="far fa-times-circle"></i></h1>
     <ul>
         <li>
+            <!-- Marked for removal -->
             <a href="/">Home</a>
         </li>
         <li>
