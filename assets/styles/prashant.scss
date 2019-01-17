@@ -11,7 +11,8 @@
  */
 
 @import "./_includes/reset", "./_includes/colors", "./_includes/fonts",
-    "./_includes/mixins", "./_includes/pygments", "./_includes/lightcase";
+    "./_includes/pygments", "./_includes/lightcase", "./_includes/mixins",
+    "./_includes/responsiveness";
 
 body {
     @include Font($defaultFontFamily);
@@ -157,7 +158,13 @@ body {
                 }
 
                 &-entry {
-                    flex: 0 0 47%;
+                    @include breakpoint(xs) {
+                        flex: 1;
+                        flex-basis: auto;
+                    }
+                    @include breakpoint(md) {
+                        flex: 0 0 47%;
+                    }
                     background: $colorMineShaft;
                     margin: 10px;
                     @include BorderRadius(3px, all);
@@ -176,6 +183,10 @@ body {
                             margin: 20px;
                             font-size: $defaultFontSize + 10;
                             color: $colorGray;
+
+                            @include breakpoint(xs) {
+                                display: none;
+                            }
                         }
 
                         &-entry {
@@ -400,6 +411,16 @@ body {
                             margin-top: 20px;
                             margin-bottom: 20px;
                         }
+
+                        .fleft {
+                            float: left;
+                        }
+                        .fright {
+                            float: right;
+                        }
+                        .fcenter {
+                            float: center;
+                        }
                     }
 
                     p {
@@ -501,9 +522,29 @@ body {
                 justify-content: center;
                 align-content: center;
                 padding: 20px;
+                @include breakpoint(xs) {
+                    padding: 0;
+                }
+                @include breakpoint(sm) {
+                    padding: 0;
+                }
+                @include breakpoint(md) {
+                    padding: 20px;
+                }
 
                 &-entry {
-                    flex: 0 0 21%;
+                    flex: 0 0 48%;
+                    @include breakpoint(xs) {
+                        flex: 1;
+                        flex-basis: auto;
+                    }
+                    @include breakpoint(sm) {
+                        flex: 1;
+                        flex-basis: auto;
+                    }
+                    @include breakpoint(md) {
+                        flex: 0 0 48%;
+                    }
                     background: $colorMineShaft;
                     margin: 10px;
                     @include Flex(column);
@@ -561,7 +602,7 @@ body {
                             margin: 10px 0;
                         }
 
-                        &-misc{
+                        &-misc {
                             font-size: $defaultFontSize - 1;
                             @include Flex(column);
                             flex: 1;
@@ -570,19 +611,22 @@ body {
                             .used {
                                 @include Flex(row);
                                 list-style-type: none;
-                                justify-content: flex-start;
+                                justify-content: center;
                                 flex-wrap: wrap;
                                 overflow: hidden;
                                 margin: 5px 0;
 
                                 li {
-                                    background: rgba($colorLightPowderedBlue, .8);
+                                    background: rgba(
+                                        $colorLightPowderedBlue,
+                                        0.8
+                                    );
                                     padding: 4px 5px;
                                     margin: 3px;
                                     @include BorderRadius(2px, all);
                                     font-size: $defaultFontSize - 4;
                                     text-transform: uppercase;
-                                    letter-spacing: .3px;
+                                    letter-spacing: 0.3px;
                                 }
                             }
 
