@@ -163,14 +163,8 @@ This is it, an easy yet clean way to add Spotify's currently playing track title
 
 Those are some of the screenies I took after various feature addition and modifications, nothing advanced. The one on the left with bland logo means the Spotify process was not found whereas the right means Spotify process was found.
 
-<div class="row">
-    <div class="six columns">
-        <a href="https://i.imgur.com/VcD7WGU.png" data-rel="lightcase"><img src="https://i.imgur.com/VcD7WGU.png"></a>
-    </div>
-    <div class="six columns">
-        <a href="https://i.imgur.com/GyAyQDO.png" data-rel="lightcase"><img src="https://i.imgur.com/GyAyQDO.png"></a>
-    </div>
-</div>
+[![](https://i.imgur.com/VcD7WGU.png)](https://i.imgur.com/VcD7WGU.png){: data-rel="lightcase"}
+[![](https://i.imgur.com/GyAyQDO.png)](https://i.imgur.com/GyAyQDO.png){: data-rel="lightcase"}
 
 Here's a [demo](https://i.imgur.com/EWK7fxU.gif){: data-rel="lightcase"} of the tool in action.
 
