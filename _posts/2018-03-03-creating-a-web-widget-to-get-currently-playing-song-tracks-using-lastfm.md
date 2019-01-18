@@ -31,7 +31,7 @@ What we did here is to create a foundation of what data goes where and such. Not
 
 Our next step is to give our foundation a look, style if you will.
 
-{% highlight sass %}
+{% highlight scss %}
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
 $globalFontSize: 13px;
