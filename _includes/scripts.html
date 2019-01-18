@@ -37,42 +37,13 @@ _)      \.___.,|     .'
 
         /* Image Lightbox Initialization
         –––––––––––––––––––––––––––––––––––––––––––––––––– */
-        $("a[data-rel^=lightcase]").lightcase({
+        $("a[data-rel^='lightcase']").lightcase({
             maxWidth: "100%"
-        });
-
-        /* Smooth scrolling. (Useful for anchors)
-        –––––––––––––––––––––––––––––––––––––––––––––––––– */
-        $('a[href*="#"]:not([href="#"]), a[href^="#fn"]').click(function() {
-            if (
-                location.pathname.replace(/^\//, "") ==
-                    this.pathname.replace(/^\//, "") &&
-                location.hostname == this.hostname
-            ) {
-                var target = $(this.hash);
-                target = target.length
-                    ? target
-                    : $('[id="#' + this.hash.slice(1) + '"]');
-                if (target.length) {
-                    $("html, body").animate(
-                        {
-                            scrollTop: target.offset().top
-                        },
-                        900,
-                        "swing",
-                        function() {
-                            window.location.hash = this.hash;
-                        }
-                    );
-
-                    return false;
-                }
-            }
         });
 
         /* External link handling.
         –––––––––––––––––––––––––––––––––––––––––––––––––– */
-        $(".posts a[href^='http://'], a[href^='https://']").click(function() {
+        $("a[href^='http://'], a[href^='https://']").click(function() {
             $(this)
                 .attr("href")
                 .indexOf("://prashant.me") == -1

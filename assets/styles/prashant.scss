@@ -14,6 +14,11 @@
     "./_includes/pygments", "./_includes/lightcase", "./_includes/mixins",
     "./_includes/responsiveness";
 
+html {
+    @include Font($defaultFontFamily);
+    scroll-behavior: smooth;
+}
+
 body {
     @include Font($defaultFontFamily);
     font-size: $defaultFontSize;
@@ -22,7 +27,7 @@ body {
         width: 100%;
         height: 100%;
         position: absolute;
-        overflow: hidden;
+        // overflow: hidden;
         @include Flex(row);
         background: $primaryGray;
 
@@ -163,6 +168,8 @@ body {
                     flex-direction: column;
                     align-items: center;
                     align-content: center;
+                    opacity: 1;
+                    z-index: 9;
 
                     .post-title {
                         font-size: $defaultFontSize * 1.5;
@@ -190,13 +197,12 @@ body {
 
                             span {
                                 @include Font($defaultFontFamily);
-                                font-size: $defaultFontSize - 4;
+                                font-size: $defaultFontSize - 3;
                                 padding: 5px 7px;
                                 background: $colorDarkCrimson;
                                 text-transform: uppercase;
-                                letter-spacing: 0.8px;
+                                letter-spacing: 0.5px;
                                 @include BorderRadius(2px, all);
-                                margin-right: 5px;
 
                                 i[class^="fa"] {
                                     margin-right: 5px;
@@ -211,7 +217,7 @@ body {
                                 @include Font($defaultFontFamily);
                                 font-size: $defaultFontSize - 5;
                                 padding: 5px 7px;
-                                background: $_colorMineShaft;
+                                background: $colorMineShaft;
                                 text-transform: uppercase;
                                 letter-spacing: 0.8px;
                                 @include BorderRadius(2px, all);
@@ -239,13 +245,18 @@ body {
                     padding: 0 15px;
                     text-transform: uppercase;
 
-                    i[class^="fa"] {
-                        margin-right: 7px;
+                    a,
+                    a:visited {
+                        color: $primaryForeground;
+
+                        i[class^="fa"] {
+                            margin-right: 7px;
+                        }
                     }
                 }
 
                 .menu-toggle {
-                    color: $primaryForeground;
+                    color: $primaryForeground !important;
                 }
             }
 
@@ -406,6 +417,23 @@ body {
                         letter-spacing: 0.5px;
                         color: $primaryForeground;
                         margin: 30px 0;
+
+                        a,
+                        a:visited {
+                            color: $colorLightPowderedBlue;
+                            text-decoration: none;
+                            border-bottom: 2px solid transparent;
+                            @include Transition(
+                                border-bottom,
+                                0.3s,
+                                ease-in-out
+                            );
+
+                            &:hover {
+                                border-bottom: 2px solid
+                                    rgba($colorLightPowderedBlue, 0.8);
+                            }
+                        }
                     }
                     h1 {
                         font-size: $defaultFontSize + 6;
@@ -436,11 +464,12 @@ body {
                         background-color: #272822;
                     }
 
-                    sup,
-                    sub {
-                        a,
-                        a:visited {
-                            color: $colorLightPowderedBlue;
+                    p {
+                        sup {
+                            a,
+                            a:visited {
+                                color: $colorLightPowderedBlue;
+                            }
                         }
                     }
 
@@ -520,13 +549,13 @@ body {
 
                     ol {
                         list-style-type: decimal;
-                        padding: 0 20px 20px 20px;
+                        padding: 0 20px 0 20px;
 
                         li {
                             @include Font($defaultFontFamily);
                             font-size: $defaultFontSize + 1;
                             line-height: $defaultFontSize + 5;
-                            margin: 10px 0;
+                            margin: 10px 20px;
 
                             a,
                             a:visited {
@@ -554,6 +583,12 @@ body {
                                 @include BorderRadius(2px, all);
                             }
                         }
+                    }
+
+                    ul {
+                        list-style-type: square;
+                        padding: 0 20px 0 0;
+                        margin: 0 20px;
                     }
                 }
             }
@@ -670,7 +705,7 @@ body {
 
                             .used {
                                 @include Flex(row);
-                                list-style-type: none;
+                                list-style-type: none !important;
                                 justify-content: center;
                                 flex-wrap: wrap;
                                 overflow: hidden;
@@ -687,6 +722,7 @@ body {
                                     font-size: $defaultFontSize - 4;
                                     text-transform: uppercase;
                                     letter-spacing: 0.3px;
+                                    color: $primaryForeground;
                                 }
                             }
 
@@ -724,12 +760,12 @@ body {
                 }
 
                 ul {
-                    list-style-type: none;
+                    list-style-type: none !important;
                     width: 100%;
                     @include Flex(column);
                     align-content: center;
                     align-items: center;
-                    margin: 20px 0;
+                    margin: 20px 0 !important;
 
                     li {
                         width: 100%;
@@ -745,6 +781,7 @@ body {
                             text-transform: uppercase;
                             letter-spacing: 1px;
                             padding: 20px;
+                            margin: 0 !important;
                             @include Transition(background, 0.4s, ease-in-out);
                             text-align: center;
 

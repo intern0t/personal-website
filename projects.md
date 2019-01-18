@@ -10,7 +10,7 @@ permalink: /projects/
 <div class="container-project">
     <div class="container-project-entry">
         <div class="container-project-entry-poster"
-         style="background-image: url('https://i.imgur.com/TbqJGR8.png'); background-position: bottom center;"></div>
+         style="background-image: url('https://i.imgur.com/dSB7gPc.png'); background-position: bottom center;"></div>
          <div class="container-project-entry-info">
             <h1>
                 <a href="https://news.prashant.me/">Curated</a>
@@ -35,7 +35,7 @@ permalink: /projects/
     </div>
     <div class="container-project-entry">
         <div class="container-project-entry-poster"
-         style="background-image: url('https://i.imgur.com/MpDxlRR.png'); background-position: top center;"></div>
+         style="background-image: url('https://i.imgur.com/99Yxugo.png'); background-position: top center;"></div>
          <div class="container-project-entry-info">
             <h1>
                 <a href="https://trackmovies.net/" title="Release website">Track Movies</a>
@@ -98,7 +98,7 @@ permalink: /projects/
     </div>
     <div class="container-project-entry">
         <div class="container-project-entry-poster"
-         style="background-image: url('https://i.imgur.com/Od9j4ZK.png'); background-position: center center;"></div>
+         style="background-image: url('https://i.imgur.com/EycvQCQ.png'); background-position: center center;"></div>
          <div class="container-project-entry-info">
             <h1>
                 <a href="https://keykode.prashant.me/">Keykode</a>
