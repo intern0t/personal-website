@@ -104,7 +104,7 @@ $(".gcse-trigger").click(function (e) {
 
 The outcome I decided to settle with, I am pretty satisfied with it.
 
-[![Search Demo](https://i.imgur.com/9zMOUWA.png)](https://i.imgur.com/9zMOUWA.png){:data-rel="lightcase"}
+[![Search Demo]({{ site.ph }}){:data-src="https://i.imgur.com/9zMOUWA.png" .lazy}](https://i.imgur.com/9zMOUWA.png){:data-rel="lightcase"}
 
 ***
 
@@ -165,9 +165,9 @@ $(".gcse-trigger").click(function (e) {
 
 That's about it; I'm trying to implement searching of words, without caring about its **case** - upper, lower or capitalized. I shall update the post once again!
 
-[![Updated Demo](https://i.imgur.com/fNJgkIw.png)](https://i.imgur.com/fNJgkIw.png){:data-rel="lightcase"}
+[![Updated Demo]({{ site.ph }}){:data-src="https://i.imgur.com/fNJgkIw.png" .lazy}](https://i.imgur.com/fNJgkIw.png){:data-rel="lightcase"}
 
-[![Simplicity](https://i.imgur.com/TYyB9gP.png)](https://i.imgur.com/TYyB9gP.png){:data-rel="lightcase"}
+[![Simplicity]({{ site.ph }}){:data-src="https://i.imgur.com/TYyB9gP.png" .lazy}](https://i.imgur.com/TYyB9gP.png){:data-rel="lightcase"}
 
 Enjoy & Happy Coding!
 

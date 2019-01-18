@@ -27,7 +27,7 @@ body {
         width: 100%;
         height: 100%;
         position: absolute;
-        // overflow: hidden;
+        overflow: hidden;
         @include Flex(row);
         background: $primaryGray;
 
@@ -160,6 +160,11 @@ body {
                     margin: -20px;
                     padding: 0;
                     position: absolute;
+                    filter: url("data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg'&gt;&lt;filter id='grayscale'&gt;&lt;feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
+                    filter: gray; /* IE6-9 */
+                    -webkit-filter: grayscale(
+                        100%
+                    ); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
                 }
 
                 &-header {
@@ -397,7 +402,7 @@ body {
 
             &-post {
                 @include Flex(column);
-                padding: 20px;
+                // padding: 20px;
 
                 .post-content {
                     color: $colorGray;
@@ -824,6 +829,20 @@ body {
                     border: 2px solid $colorDarkCrimson !important;
                 }
             }
+        }
+    }
+
+    // Animations
+    .fade {
+        animation-name: fade;
+        animation-duration: 2s;
+    }
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
         }
     }
 }
