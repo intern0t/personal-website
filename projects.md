@@ -6,6 +6,11 @@ permalink: /projects/
 
 <div class="container-blog-header">
     <h1><i class="fas fa-flask"></i> Projects</h1>
+    <h1>
+        <a href="#" class="menu-toggle" title="Toggle Menu">
+            <i class="fas fa-ellipsis-v"></i>
+        </a>
+    </h1>
 </div>
 <div class="container-project">
     <div class="container-project-entry">
@@ -189,3 +194,7 @@ permalink: /projects/
          </div>
     </div>
 </div>
+
+<!-- Menu -->
+
+{% include menu.html %}
