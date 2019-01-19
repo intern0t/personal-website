@@ -1,0 +1,17 @@
+---
+layout: null
+---
+{
+    "posts": [
+        {% for post in site.posts %}
+            {
+                "title": "{{ post.title }}",
+                "date": "{{ post.date }}",
+                "category": "{{ post.categories }}",
+                "link": "{{ post.url | replace:'index.html','' | absolute_url }}",
+                "excerpt": "{{ post.content | markdownify | strip_html | truncatewords: 70 | escape }}",
+                "tags": {{ post.tags | append: "" | join: ', ' }}
+            }{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+    ]
+}

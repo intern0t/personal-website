@@ -103,7 +103,6 @@ $(".gcse-trigger").click(function (e) {
 {% endhighlight %}
 
 The outcome I decided to settle with, I am pretty satisfied with it.
-
 [![Search Demo]({{ site.ph }}){:data-src="https://i.imgur.com/9zMOUWA.png" .lazy}](https://i.imgur.com/9zMOUWA.png){:data-rel="lightcase"}
 
 ***
@@ -128,35 +127,87 @@ Similarly, our search function has a bit of an addition.
 {% highlight javascript %}
 /* Search trigger - using manual button click.
 ========================================================= */
-$(".gcse-trigger").click(function (e) {
+
+$(".gcse-trigger").click(function(e) {
     e.preventDefault();
-    var searchKey = $('input#toSearch').val();
+    var searchKey = $("input#toSearch").val();
     console.log(searchKey);
-    $.getJSON("../posts.json", {}, function (data) {
-        const filteredData = data.posts.filter(post =>
-            post.title.toLowerCase().includes(searchKey.toLowerCase()) ||
-            post.tags.join().toLowerCase().includes(searchKey.toLowerCase()) ||
-            post.category.toLowerCase().includes(searchKey.toLowerCase()) ||
-            post.excerpt.indexOf(searchKey) > 0);
+    $.getJSON("../posts.json", {}, function(data) {
+        const filteredData = data.posts.filter(
+            post =>
+                post.title.toLowerCase().includes(searchKey.toLowerCase()) ||
+                post.tags
+                    .join()
+                    .toLowerCase()
+                    .includes(searchKey.toLowerCase()) ||
+                post.category.toLowerCase().includes(searchKey.toLowerCase()) ||
+                post.excerpt.indexOf(searchKey) > 0
+        );
         console.log(JSON.stringify(filteredData));
-        $(".search-result-container").empty().append("<h5 class='totalSearchResults'>Found " + filteredData.length + " results for " + searchKey + ".</h5>");
+        $(".search-result-container")
+            .empty()
+            .append(
+                "<h5 class='totalSearchResults'>Found " +
+                    filteredData.length +
+                    " results for " +
+                    searchKey +
+                    ".</h5>"
+            );
         $.each(filteredData, (key, value) => {
-            var initialFormatting = '<div class="row result">' +
+            var initialFormatting =
+                '<div class="row result">' +
                 '<div class="u-full-width">' +
                 '<h5><i class="icon-file-text2"></i>&nbsp;<a target="_blank" href="{0}">{1}</a></h5>' +
                 '<p><i class="icon-price-tags" title="Tags"></i>&nbsp;&nbsp;{2}</p>' +
-                '<p>{5}</p>' +
+                "<p>{5}</p>" +
                 '<p><i class="icon-tree" title="Categories"></i>&nbsp;&nbsp;{3}<br/>' +
                 '<i class="icon-calendar"></i>&nbsp;&nbsp;{4}</p>' +
-                '</div></div>';
+                "</div></div>";
             $(".search-result-container").append(
                 initialFormatting
                     .replace("{0}", value.link)
-                    .replace("{1}", value.title.replace(searchKey, "<span style='background: yellow;'>" + searchKey + "</span>"))
-                    .replace("{2}", value.tags.join(', ').toUpperCase().replace(searchKey.toUpperCase(), "<span style='background: yellow;'>" + searchKey.toUpperCase() + "</span>"))
-                    .replace("{3}", value.category.toUpperCase().replace(searchKey.toUpperCase(), "<span style='background: yellow;'>" + searchKey.toUpperCase() + "</span>"))
+                    .replace(
+                        "{1}",
+                        value.title.replace(
+                            searchKey,
+                            "<span style='background: yellow;'>" +
+                                searchKey +
+                                "</span>"
+                        )
+                    )
+                    .replace(
+                        "{2}",
+                        value.tags
+                            .join(", ")
+                            .toUpperCase()
+                            .replace(
+                                searchKey.toUpperCase(),
+                                "<span style='background: yellow;'>" +
+                                    searchKey.toUpperCase() +
+                                    "</span>"
+                            )
+                    )
+                    .replace(
+                        "{3}",
+                        value.category
+                            .toUpperCase()
+                            .replace(
+                                searchKey.toUpperCase(),
+                                "<span style='background: yellow;'>" +
+                                    searchKey.toUpperCase() +
+                                    "</span>"
+                            )
+                    )
                     .replace("{4}", value.date.toUpperCase())
-                    .replace("{5}", value.excerpt.replace(searchKey, "<span style='background: yellow;'>" + searchKey + "</span>"))
+                    .replace(
+                        "{5}",
+                        value.excerpt.replace(
+                            searchKey,
+                            "<span style='background: yellow;'>" +
+                                searchKey +
+                                "</span>"
+                        )
+                    )
             );
         });
     });
