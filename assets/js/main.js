@@ -29,7 +29,8 @@ $(document).ready(() => {
         "Github",
         "Netlify",
         "Google Web Fonts",
-        "Updown"
+        "Updown",
+        "Lozad (Lazy Loader)"
     ];
 
     console.log(`♥ Special thanks to ${ThanksTo.join(", ")}. ♥`);

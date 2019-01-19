@@ -4,8 +4,17 @@ title: Library
 permalink: /library/
 ---
 
-# <i class="fas fa-book-reader"></i> Library/References
+<div class="container-blog-header">
+    <h1><i class="fas fa-book-reader"></i> Library/References</h1>
+    <h1>
+        <a href="#" class="menu-toggle" title="Toggle Menu">
+            <i class="fas fa-ellipsis-v"></i>
+        </a>
+    </h1>
+</div>
 
+<div class="container-post">
+<div class="post-content" markdown="1">
 > What I have enlisted and compiled here are the libraries and references that I have used and found useful for my future references. Every content listed on this **particular** page is **not** owned by me and are linked directly to the source and will be constantly updated.
 
 ###### <i class="fas fa-layer-group"></i> **Computer Science, [Practices](/cs-practice/)**
@@ -51,7 +60,7 @@ permalink: /library/
     7. [ReactJS Sweet Pumpkin Tutorial (CodeCamps, free)](https://sweetpumpkins.codecamps.com/)
     8. [Scrimba](https://scrimba.com)
     9. [The Road to learn React: Your journey to master plain yet pragmatic React.js](https://www.amazon.com/gp/product/1986338827/) by [Robin Wieruch](https://www.amazon.com/Robin-Wieruch/e/B07BBS273X/ref=dp_byline_cont_ebooks_1) <span class="fas fa-book" title="Completed, Summer & Fall 2018"></span>
-    10. [Taming the State in React: Your journey to master Redux and MobX](https://www.amazon.com/dp/B07CYKDQ5S) by [Robin Wieruch](https://www.amazon.com/Robin-Wieruch/e/B07BBS273X/ref=dp_byline_cont_ebooks_1) <span class="fas fa-book-open" title="Started, Fall 2018"></span>
+    10. [Taming the State in React: Your journey to master Redux and MobX](https://www.amazon.com/dp/B07CYKDQ5S) by [Robin Wieruch](https://www.amazon.com/Robin-Wieruch/e/B07BBS273X/ref=dp_byline_cont_ebooks_1) <span class="fas fa-book" title="Completed, Fall 2018 - Spring 2019 (Jan 15)"></span>
 -   Desktop Application Development
     1. [Awesome Electron](https://github.com/sindresorhus/awesome-electron) by [@sindresorhus](https://github.com/sindresorhus/)
     2. [Starting Out with C++ from Control Structures to Objects](https://www.amazon.com/Starting-Out-Control-Structures-Objects/dp/0134498372) by [Tony Gaddis](https://media.pearsoncmg.com/bc/abp/cs-resources/products/series.html#series,series=Gaddis)
@@ -80,7 +89,7 @@ permalink: /library/
 
 1. [Markdown](https://en.wikipedia.org/wiki/Markdown) [Cheatsheet by @adam-p](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-   - [Markdown help/tutorial by @commonmark.org](http://commonmark.org/help/tutorial/)
+    - [Markdown help/tutorial by @commonmark.org](http://commonmark.org/help/tutorial/)
 
 2. [Git Cheat Sheet - Education](https://education.github.com/git-cheat-sheet-education.pdf)
 
@@ -97,3 +106,7 @@ permalink: /library/
     1. [DevDocs](http://devdocs.io/)
 -   Icons
     1. [The Noun Project](https://thenounproject.com) for **Icons & SVG**, free & premium options.
+
+</div>
+</div>
+{% include menu.html %}
