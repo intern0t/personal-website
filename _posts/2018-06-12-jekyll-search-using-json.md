@@ -8,7 +8,7 @@ tags: javascript json search build file clientside jquery
 poster: https://i.imgur.com/mOtENKW.png
 ---
 
-> Check what was [updated](#updated). - *Wed Aug  8 20:36:45 EDT 2018*
+> Check what was [updated]({% post_url 2018-06-12-jekyll-search-using-json %}#updated). - *Wed Aug  8 20:36:45 EDT 2018*
 
 I remember using and integrating Google Search results in various web projects of mine, including this blog but never did occur to me that using Google Search for Jekyll was pretty painful. It wasn't the feature Google was providing their **free** users; it wasn't the idea behind the implementation but rather the various factors required to implement it correctly. A small mistake in proper configurations could make our end goal turn south.
 
@@ -31,7 +31,7 @@ First, let me list[^1] some of Jekyll's liquid template syntaxes that I used for
 
 I used these syntaxes to create and populate a JSON file named `posts.json` with our blog posts data.
 
-{% highlight json %}{% raw %}
+{% highlight liquid %}{% raw %}
 ---
 layout: null
 ---
@@ -104,7 +104,7 @@ $(".gcse-trigger").click(function (e) {
 
 The outcome I decided to settle with, I am pretty satisfied with it.
 
-[![Search Demo](https://i.imgur.com/9zMOUWA.png)](https://i.imgur.com/9zMOUWA.png){:data-rel="lightcase"}
+[![Search Demo]({{ site.ph }}){:data-src="https://i.imgur.com/9zMOUWA.png" .lazy}](https://i.imgur.com/9zMOUWA.png){:data-rel="lightcase"}
 
 ***
 
@@ -165,9 +165,9 @@ $(".gcse-trigger").click(function (e) {
 
 That's about it; I'm trying to implement searching of words, without caring about its **case** - upper, lower or capitalized. I shall update the post once again!
 
-[![Updated Demo](https://i.imgur.com/fNJgkIw.png)](https://i.imgur.com/fNJgkIw.png){:data-rel="lightcase"}
+[![Updated Demo]({{ site.ph }}){:data-src="https://i.imgur.com/fNJgkIw.png" .lazy}](https://i.imgur.com/fNJgkIw.png){:data-rel="lightcase"}
 
-[![Simplicity](https://i.imgur.com/TYyB9gP.png)](https://i.imgur.com/TYyB9gP.png){:data-rel="lightcase"}
+[![Simplicity]({{ site.ph }}){:data-src="https://i.imgur.com/TYyB9gP.png" .lazy}](https://i.imgur.com/TYyB9gP.png){:data-rel="lightcase"}
 
 Enjoy & Happy Coding!
 

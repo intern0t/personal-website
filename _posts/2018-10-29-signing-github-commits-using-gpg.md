@@ -36,7 +36,7 @@ libgcrypt 1.8.1
 6. Secure your key with a passphrase.
 7. **Verify** that key is created using `gpg --list-secret-keys --keyid-format LONG` command.
 
-[![Unverified Commit](https://i.imgur.com/FWL3XNR.png)](https://i.imgur.com/FWL3XNR.png){:data-rel="lightcase"}
+[![Unverified Commit]({{ site.ph }}){:data-src="https://i.imgur.com/FWL3XNR.png" .lazy}](https://i.imgur.com/FWL3XNR.png){:data-rel="lightcase"}
 
 You should see an output similar to this.
 
@@ -79,7 +79,7 @@ git commit -S -am "Yay, signed message test."
 
 If everything went well, your signed and verified commit in Github should look similar to this.
 
-[![Verified Commit](https://i.imgur.com/oDVZ2rv.png)](https://i.imgur.com/oDVZ2rv.png){:data-rel="lightcase"}
+[![Verified Commit]({{ site.ph }}){:data-src="https://i.imgur.com/oDVZ2rv.png" .lazy}](https://i.imgur.com/oDVZ2rv.png){:data-rel="lightcase"}
 
 Good Luck!
 

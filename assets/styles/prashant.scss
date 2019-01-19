@@ -27,7 +27,7 @@ body {
         width: 100%;
         height: 100%;
         position: absolute;
-        // overflow: hidden;
+        overflow: hidden;
         @include Flex(row);
         background: $primaryGray;
 
@@ -160,6 +160,11 @@ body {
                     margin: -20px;
                     padding: 0;
                     position: absolute;
+                    filter: url("data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg'&gt;&lt;filter id='grayscale'&gt;&lt;feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
+                    filter: gray; /* IE6-9 */
+                    -webkit-filter: grayscale(
+                        100%
+                    ); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
                 }
 
                 &-header {
@@ -253,10 +258,20 @@ body {
                             margin-right: 7px;
                         }
                     }
-                }
 
-                .menu-toggle {
-                    color: $primaryForeground !important;
+                    .menu-toggle {
+                        color: $primaryForeground !important;
+
+                        a,
+                        a:visited {
+                            text-decoration: none;
+                            border-bottom: 2px solid transparent;
+
+                            &:hover {
+                                border-bottom: 2px solid transparent !important;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -397,11 +412,12 @@ body {
 
             &-post {
                 @include Flex(column);
-                padding: 20px;
+                // padding: 20px;
 
                 .post-content {
                     color: $colorGray;
                     font-size: $defaultFontSize + 1;
+                    padding: 20px;
 
                     hr {
                         margin: 40px 0;
@@ -462,6 +478,16 @@ body {
                         color: #d3d4d4;
                         position: relative;
                         background-color: #272822;
+
+                        &::before {
+                            font-family: FontAwesome;
+                            content: "\f10d";
+                            font-size: 42px;
+                            position: absolute;
+                            top: 10px;
+                            left: 15px;
+                            opacity: 0.1;
+                        }
                     }
 
                     p {
@@ -824,6 +850,49 @@ body {
                     border: 2px solid $colorDarkCrimson !important;
                 }
             }
+        }
+
+        .toTop {
+            position: fixed;
+            bottom: 0;
+            right: 25px;
+            background: $colorLightPowderedBlue;
+            font-size: 11px;
+            text-transform: uppercase;
+            z-index: 99;
+            @include Flex(row);
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            display: none;
+            text-decoration: none;
+
+            i[class^="fa"] {
+                background: #1f3341;
+                color: $primaryForeground;
+                padding: 8px 10px;
+                border-top-left-radius: 3px;
+            }
+
+            span {
+                @include Font($defaultFontFamily);
+                color: $primaryForeground;
+                padding: 8px 15px;
+                border-top-right-radius: 3px;
+            }
+        }
+    }
+
+    // Animations
+    .fade {
+        animation-name: fade;
+        animation-duration: 2s;
+    }
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
         }
     }
 }
