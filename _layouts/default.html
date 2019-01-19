@@ -2,17 +2,19 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 {% include head.html %}
 <body>
+    <!-- Top anchor -->
+    <div id="top"></div>
+
     <div class="main-wrapper" aria-label="Content">
-        {% include sidebar.html %} 
+        <!-- Import Sidebar -->
+        {% include sidebar.html %}
+
         {{ content }}
 
         <!-- Scroll to TOP!
         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <a class="toTop" href="#top" title="Scroll to Top!">
-            <span class="icon-arrow-shuffle"></span>
-        </a>
-        <a class="pinned-down" href="#" title="Toggle Theme">
-            <span class="icon-lamp1 themeToggleButton"></span>
+            <i class="fas fa-angle-up"></i> <span>Top</span>
         </a>
     </div>
     <!-- Include all scripts. -->

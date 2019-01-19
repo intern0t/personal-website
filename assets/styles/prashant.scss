@@ -258,10 +258,20 @@ body {
                             margin-right: 7px;
                         }
                     }
-                }
 
-                .menu-toggle {
-                    color: $primaryForeground !important;
+                    .menu-toggle {
+                        color: $primaryForeground !important;
+
+                        a,
+                        a:visited {
+                            text-decoration: none;
+                            border-bottom: 2px solid transparent;
+
+                            &:hover {
+                                border-bottom: 2px solid transparent !important;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -407,6 +417,7 @@ body {
                 .post-content {
                     color: $colorGray;
                     font-size: $defaultFontSize + 1;
+                    padding: 20px;
 
                     hr {
                         margin: 40px 0;
@@ -467,6 +478,16 @@ body {
                         color: #d3d4d4;
                         position: relative;
                         background-color: #272822;
+
+                        &::before {
+                            font-family: FontAwesome;
+                            content: "\f10d";
+                            font-size: 42px;
+                            position: absolute;
+                            top: 10px;
+                            left: 15px;
+                            opacity: 0.1;
+                        }
                     }
 
                     p {
@@ -828,6 +849,35 @@ body {
                 .active-page {
                     border: 2px solid $colorDarkCrimson !important;
                 }
+            }
+        }
+
+        .toTop {
+            position: fixed;
+            bottom: 0;
+            right: 25px;
+            background: $colorLightPowderedBlue;
+            font-size: 11px;
+            text-transform: uppercase;
+            z-index: 99;
+            @include Flex(row);
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            display: none;
+            text-decoration: none;
+
+            i[class^="fa"] {
+                background: #1f3341;
+                color: $primaryForeground;
+                padding: 8px 10px;
+                border-top-left-radius: 3px;
+            }
+
+            span {
+                @include Font($defaultFontFamily);
+                color: $primaryForeground;
+                padding: 8px 15px;
+                border-top-right-radius: 3px;
             }
         }
     }
