@@ -23,6 +23,14 @@ body {
     @include Font($defaultFontFamily);
     font-size: $defaultFontSize;
 
+    sup,
+    sub {
+        a,
+        a:visited {
+            color: $colorLightPowderedBlue;
+        }
+    }
+
     .main-wrapper {
         width: 100%;
         height: 100%;
@@ -486,15 +494,6 @@ body {
                         }
                     }
 
-                    p {
-                        sup {
-                            a,
-                            a:visited {
-                                color: $colorLightPowderedBlue;
-                            }
-                        }
-                    }
-
                     p > a {
                         & > img {
                             max-width: 100%;
@@ -519,7 +518,7 @@ body {
                     p {
                         @include Font($defaultFontFamily);
                         font-size: $defaultFontSize + 1;
-                        line-height: $defaultFontSize + 5;
+                        line-height: $defaultFontSize * 1.7;
                         letter-spacing: 0.5px;
                         margin: 10px 0;
                         color: $colorGray;
@@ -966,7 +965,7 @@ body {
 
                             .tag {
                                 padding: 5px 7px;
-                                background: $colorDarkCrimson;
+                                background: $LimedSpruce;
                                 font-size: $defaultFontSize - 5;
                                 margin: 5px;
                                 letter-spacing: 0.5px;
