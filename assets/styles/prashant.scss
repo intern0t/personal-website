@@ -11,1073 +11,1153 @@
  */
 
 @import "./_includes/reset", "./_includes/colors", "./_includes/fonts",
-    "./_includes/pygments", "./_includes/lightcase", "./_includes/mixins",
-    "./_includes/responsiveness";
+	"./_includes/pygments", "./_includes/lightcase", "./_includes/mixins",
+	"./_includes/responsiveness";
 
 html {
-    @include Font($defaultFontFamily);
-    scroll-behavior: smooth;
+	@include Font($defaultFontFamily);
+	scroll-behavior: smooth;
 }
 
 body {
-    @include Font($defaultFontFamily);
-    font-size: $defaultFontSize;
-
-    sup,
-    sub {
-        a,
-        a:visited {
-            color: $colorLightPowderedBlue;
-        }
-    }
-
-    .main-wrapper {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        overflow: hidden;
-        @include Flex(row);
-        background: $primaryGray;
-
-        .sidebar {
-            height: 100%;
-            background: $Black;
-            color: $primaryForeground;
-            @include Box-Shadow(0 0 1px 1px rgba($Black, 0.6));
-            @include Flex(column);
-            justify-content: space-between;
-
-            &-logo {
-                padding: 20px;
-                margin: 10px 0 0 0;
-
-                a,
-                a:visited {
-                    text-decoration: none;
-                    text-transform: none;
-                    @include Font($defaultFontFamily);
-                    font-weight: bold;
-                    text-align: center;
-                    letter-spacing: 2px;
-                    padding: 6px;
-                    border: 2px solid $primaryForeground;
-                    @include BorderRadius(2px, all);
-                    cursor: pointer;
-                    @include Transition(border, 0.4s, ease-in-out);
-                    color: $primaryForeground;
-
-                    &:hover {
-                        border: 2px solid $primaryIndexed;
-                    }
-                }
-            }
-
-            &-list {
-                list-style-type: none;
-                @include Flex(column);
-                align-content: center;
-
-                li {
-                    display: block;
-                    position: relative;
-                    border-left: 4px solid transparent;
-                    @include Transition(border-left, 0.3s, ease-in-out);
-
-                    a,
-                    a:visited {
-                        @include Transform(270deg);
-                        text-align: center;
-                        color: $primaryForeground;
-                        text-decoration: none;
-                        @include Font($defaultFontFamily);
-                        font-weight: bold;
-                        letter-spacing: 2px;
-                        font-size: $defaultFontSize - 3;
-                        text-transform: uppercase;
-                        display: block;
-                        padding: 35px 0px;
-                    }
-
-                    &:hover {
-                        border-left: 4px solid $primaryIndexed;
-                    }
-                }
-            }
-
-            &-footer {
-                margin-bottom: 30px;
-
-                &-list {
-                    @include Flex(column);
-                    align-items: center;
-                    list-style-type: none;
-
-                    li {
-                        width: 100%;
-                        font-size: $defaultFontSize + 3;
-
-                        a,
-                        a:visited {
-                            display: block;
-                            color: $primaryForeground;
-                            text-align: center;
-                            padding: 10px;
-                            @include Transition(color, 0.3s, ease-in-out);
-                        }
-
-                        &:hover {
-                            a,
-                            a:visited {
-                                color: $primaryIndexed;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        .container {
-            flex: 1;
-            padding: 20px;
-            background: $primaryGray;
-            color: $primaryForeground;
-            overflow: auto;
-
-            .post-background {
-                @include Flex(column);
-                justify-content: center;
-                align-content: center;
-                align-items: center;
-                position: relative;
-                height: 400px;
-                margin: -20px;
-
-                &-poster {
-                    background: no-repeat top center;
-                    background-attachment: scroll;
-                    background-size: cover;
-                    flex: 1;
-                    width: 100%;
-                    width: -moz-available;
-                    width: -webkit-fill-available;
-                    width: fill-available;
-                    min-height: 400px;
-                    max-height: 400px;
-                    z-index: 1;
-                    opacity: 0.1;
-                    margin: -20px;
-                    padding: 0;
-                    position: absolute;
-                    filter: url("data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg'&gt;&lt;filter id='grayscale'&gt;&lt;feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
-                    filter: gray; /* IE6-9 */
-                    -webkit-filter: grayscale(
-                        100%
-                    ); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
-                }
-
-                &-header {
-                    @include Flex(column);
-                    justify-content: center;
-                    flex-direction: column;
-                    align-items: center;
-                    align-content: center;
-                    opacity: 1;
-                    z-index: 9;
-
-                    .post-title {
-                        font-size: $defaultFontSize * 1.5;
-                        // margin: 10px 0;
-
-                        i[class^="fa"] {
-                            margin-right: 5px;
-                        }
-                    }
-
-                    .post-meta {
-                        margin: 20px 0;
-                    }
-
-                    .post-misc-meta {
-                        width: auto;
-                        padding: 5px;
-
-                        &-categories {
-                            margin: 5px 0;
-                            @include Flex(row);
-                            justify-content: center;
-                            align-content: center;
-                            align-items: center;
-
-                            span {
-                                @include Font($defaultFontFamily);
-                                font-size: $defaultFontSize - 3;
-                                padding: 5px 7px;
-                                background: $colorDarkCrimson;
-                                text-transform: uppercase;
-                                letter-spacing: 0.5px;
-                                @include BorderRadius(2px, all);
-
-                                i[class^="fa"] {
-                                    margin-right: 5px;
-                                }
-                            }
-                        }
-
-                        &-tags {
-                            padding: 5px 0;
-
-                            span {
-                                @include Font($defaultFontFamily);
-                                font-size: $defaultFontSize - 5;
-                                padding: 5px 7px;
-                                background: $colorMineShaft;
-                                text-transform: uppercase;
-                                letter-spacing: 0.8px;
-                                @include BorderRadius(2px, all);
-                                margin-right: 5px;
-
-                                i[class^="fa"] {
-                                    margin-right: 5px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            &-blog-header {
-                @include Flex(row);
-                padding: 30px 0;
-                justify-content: space-between;
-
-                h1 {
-                    @include Font($defaultFontFamily);
-                    font-size: $defaultFontSize * 1.5;
-                    font-weight: bold;
-                    letter-spacing: 1px;
-                    padding: 0 15px;
-                    text-transform: uppercase;
-
-                    a,
-                    a:visited {
-                        color: $primaryForeground;
-
-                        i[class^="fa"] {
-                            margin-right: 7px;
-                        }
-                    }
-
-                    .menu-toggle {
-                        color: $primaryForeground !important;
-
-                        &:hover {
-                            color: $colorGray;
-                            text-decoration: none;
-                            border-bottom: 2px solid transparent !important;
-                        }
-                    }
-                }
-            }
-
-            &-blog {
-                @include Flex(row);
-                flex-flow: wrap;
-                justify-content: center;
-                align-content: stretch;
-
-                article {
-                    @include Flex(column);
-                }
-
-                &-entry {
-                    @include breakpoint(xs) {
-                        flex: 1;
-                        flex-basis: auto;
-                    }
-                    @include breakpoint(md) {
-                        flex: 0 0 47%;
-                    }
-                    background: $colorMineShaft;
-                    margin: 10px;
-                    @include BorderRadius(3px, all);
-                    @include Box-Shadow(
-                        0px 0px 5px 1px rgba($primaryBackground, 0.75)
-                    );
-
-                    &-inner {
-                        @include Flex(row);
-                        justify-content: flex-start;
-                        align-items: center;
-                        align-content: center;
-                        padding: 20px;
-
-                        &-icon {
-                            margin: 20px;
-                            font-size: $defaultFontSize + 10;
-                            color: $colorGray;
-
-                            @include breakpoint(xs) {
-                                display: none;
-                            }
-                        }
-
-                        &-entry {
-                            flex: 1;
-                            padding: 10px;
-
-                            .highlight {
-                                margin: 20px 0;
-                                background: #272822;
-                                @include Font($defaultCodeFontFamily);
-                                line-height: $defaultFontSize + 5;
-
-                                pre {
-                                    padding: 20px;
-                                }
-                            }
-
-                            .title {
-                                @include Font($defaultFontFamily);
-                                font-size: $defaultFontSize + 3;
-                                line-height: $defaultFontSize + 10;
-                                color: $primaryForeground;
-                                text-decoration: none;
-                                letter-spacing: 0.5px;
-                                margin: 10px 0;
-                                @include Transition(color, 0.3s, ease-in-out);
-
-                                &:hover {
-                                    color: $colorDarkCrimson;
-                                }
-                            }
-
-                            p {
-                                @include Font($defaultFontFamily);
-                                font-size: $defaultFontSize;
-                                line-height: $defaultFontSize + 5;
-                                letter-spacing: 0.5px;
-                                margin: 10px 0;
-                                color: $colorGray;
-
-                                a,
-                                a:visited {
-                                    color: $colorLightPowderedBlue;
-                                    text-decoration: none;
-                                    border-bottom: 2px solid transparent;
-                                    @include Transition(
-                                        border-bottom,
-                                        0.3s,
-                                        ease-in-out
-                                    );
-
-                                    &:hover {
-                                        border-bottom: 2px solid
-                                            rgba($colorLightPowderedBlue, 0.8);
-                                    }
-                                }
-                            }
-
-                            &-post-date {
-                                @include Flex(row);
-                                justify-content: space-between;
-                                align-content: center;
-                                align-items: center;
-                                margin: 20px 0;
-                                color: rgba($colorGray, 0.6);
-
-                                time {
-                                    margin-left: 7px;
-                                }
-
-                                span {
-                                    @include Font($defaultFontFamily);
-                                    font-size: $defaultFontSize - 5;
-                                    padding: 5px 7px;
-                                    background: $colorDarkCrimson;
-                                    text-transform: uppercase;
-                                    letter-spacing: 0.8px;
-                                    @include BorderRadius(2px, all);
-                                    color: $primaryForeground;
-                                    margin: 0 5px 0 0;
-
-                                    i[class^="fa"] {
-                                        margin-right: 5px;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            &-post-with-header {
-                margin-top: 0;
-            }
-
-            &-post {
-                @include Flex(column);
-                // padding: 20px;
-
-                .post-content {
-                    color: $colorGray;
-                    font-size: $defaultFontSize + 1;
-                    padding: 20px;
-
-                    hr {
-                        margin: 40px 0;
-                    }
-
-                    h1,
-                    h2,
-                    h3,
-                    h4,
-                    h5,
-                    h6 {
-                        text-transform: capitalize;
-                        letter-spacing: 0.5px;
-                        color: $primaryForeground;
-                        margin: 15px 0;
-
-                        a,
-                        a:visited {
-                            color: $colorLightPowderedBlue;
-                            text-decoration: none;
-                            border-bottom: 2px solid transparent;
-                            @include Transition(
-                                border-bottom,
-                                0.3s,
-                                ease-in-out
-                            );
-
-                            &:hover {
-                                border-bottom: 2px solid
-                                    rgba($colorLightPowderedBlue, 0.8);
-                            }
-                        }
-                    }
-                    h1 {
-                        font-size: $defaultFontSize + 6;
-                    }
-                    h2 {
-                        font-size: $defaultFontSize + 5;
-                    }
-                    h3 {
-                        font-size: $defaultFontSize + 4;
-                    }
-                    h4 {
-                        font-size: $defaultFontSize + 3;
-                    }
-                    h5 {
-                        font-size: $defaultFontSize + 2;
-                    }
-                    h6 {
-                        font-size: $defaultFontSize + 1;
-                    }
-
-                    blockquote {
-                        padding: 10px 20px;
-                        margin: 15px 0 15px 0;
-                        border-left: 4px solid $colorDarkCrimson;
-                        background: rgba(211, 212, 212, 0.1);
-                        color: #d3d4d4;
-                        position: relative;
-                        background-color: #272822;
-
-                        &::before {
-                            font-family: FontAwesome;
-                            content: "\f10d";
-                            font-size: 42px;
-                            position: absolute;
-                            top: 10px;
-                            left: 15px;
-                            opacity: 0.1;
-                        }
-                    }
-
-                    p > a {
-                        & > img {
-                            max-width: 100%;
-                            display: block;
-                            margin: 0 auto;
-                            clear: both;
-                            margin-top: 20px;
-                            margin-bottom: 20px;
-                        }
-
-                        .fleft {
-                            float: left;
-                        }
-                        .fright {
-                            float: right;
-                        }
-                        .fcenter {
-                            float: center;
-                        }
-                    }
-
-                    p {
-                        @include Font($defaultFontFamily);
-                        font-size: $defaultFontSize + 1;
-                        line-height: $defaultFontSize * 1.7;
-                        letter-spacing: 0.5px;
-                        margin: 10px 0;
-                        color: $colorGray;
-
-                        a,
-                        a:visited {
-                            color: $colorLightPowderedBlue;
-                            text-decoration: none;
-                            border-bottom: 2px solid transparent;
-                            @include Transition(
-                                border-bottom,
-                                0.3s,
-                                ease-in-out
-                            );
-
-                            img {
-                                max-width: 100%;
-                                overflow: hidden;
-                            }
-
-                            &:hover {
-                                border-bottom: 2px solid
-                                    rgba($colorLightPowderedBlue, 0.5);
-                            }
-                        }
-
-                        code {
-                            @include Font($defaultCodeFontFamily);
-                            background: rgba($colorDarkCrimson, 0.3);
-                            color: $primaryForeground;
-                            padding: 3px 5px;
-                            font-size: $defaultFontSize;
-                            @include BorderRadius(2px, all);
-                        }
-                    }
-
-                    .highlight {
-                        margin: 20px 0;
-                        background: #272822;
-                        @include Font($defaultCodeFontFamily);
-                        line-height: $defaultFontSize + 5;
-
-                        pre {
-                            padding: 20px;
-                            position: relative;
-                            overflow: auto;
-                        }
-                    }
-
-                    ol {
-                        list-style-type: decimal;
-                        padding: 10px;
-
-                        li {
-                            @include Font($defaultFontFamily);
-                            font-size: $defaultFontSize + 1;
-                            line-height: $defaultFontSize + 5;
-                            margin: 10px 20px;
-
-                            a,
-                            a:visited {
-                                color: $colorLightPowderedBlue;
-                                text-decoration: none;
-                                border-bottom: 2px solid transparent;
-                                @include Transition(
-                                    border-bottom,
-                                    0.3s,
-                                    ease-in-out
-                                );
-
-                                &:hover {
-                                    border-bottom: 2px solid
-                                        rgba($colorLightPowderedBlue, 0.8);
-                                }
-                            }
-
-                            code {
-                                @include Font($defaultCodeFontFamily);
-                                background: rgba($colorDarkCrimson, 0.3);
-                                color: $primaryForeground;
-                                padding: 3px 5px;
-                                font-size: $defaultFontSize;
-                                @include BorderRadius(2px, all);
-                            }
-                        }
-                    }
-
-                    ul {
-                        list-style-type: square;
-                        padding: 0 20px;
-                        margin: 0 20px;
-                    }
-                }
-            }
-
-            &-project {
-                @include Flex(row);
-                flex-wrap: wrap;
-                justify-content: center;
-                align-content: center;
-                padding: 20px;
-                @include breakpoint(xs) {
-                    padding: 0;
-                }
-                @include breakpoint(sm) {
-                    padding: 0;
-                }
-                @include breakpoint(md) {
-                    padding: 20px;
-                }
-
-                &-entry {
-                    flex: 0 0 48%;
-                    @include breakpoint(xs) {
-                        flex: 1;
-                        flex-basis: auto;
-                    }
-                    @include breakpoint(sm) {
-                        flex: 1;
-                        flex-basis: auto;
-                    }
-                    @include breakpoint(md) {
-                        flex: 0 0 48%;
-                    }
-                    background: $colorMineShaft;
-                    margin: 10px;
-                    @include Flex(column);
-                    @include BorderRadius(3px, all);
-                    @include Transition(box-shadow, 0.3s, ease-in-out);
-
-                    &-poster {
-                        background-size: cover;
-                        background-position: center;
-                        min-height: 250px;
-                        max-height: 250px;
-                        overflow: hidden;
-                        opacity: 0.7;
-                        cursor: pointer;
-                        @include BorderRadius(3px, top);
-
-                        &:hover {
-                            opacity: 0.9;
-                        }
-                    }
-
-                    &-info {
-                        padding: 15px;
-                        flex: 1;
-
-                        h1 {
-                            @include Font($defaultFontFamily);
-                            font-size: $defaultFontSize + 2;
-                            letter-spacing: 0.6px;
-                            margin: 10px 0;
-
-                            a,
-                            a:visited {
-                                color: $colorLightPowderedBlue;
-                                text-decoration: none;
-                                border-bottom: 2px solid transparent;
-                                @include Transition(
-                                    border-bottom,
-                                    0.3s,
-                                    ease-in-out
-                                );
-
-                                &:hover {
-                                    border-bottom: 2px solid
-                                        rgba($colorLightPowderedBlue, 0.8);
-                                }
-                            }
-                        }
-
-                        p {
-                            color: $colorGray;
-                            @include Font($defaultFontFamily);
-                            font-size: $defaultFontSize;
-                            letter-spacing: 0.5px;
-                            line-height: $defaultFontSize * 1.3;
-                            margin: 10px 0;
-
-                            a,
-                            a:visited {
-                                color: $colorLightPowderedBlue;
-                                text-decoration: none;
-                                border-bottom: 2px solid transparent;
-                                @include Transition(
-                                    border-bottom,
-                                    0.3s,
-                                    ease-in-out
-                                );
-
-                                &:hover {
-                                    border-bottom: 2px solid
-                                        rgba($colorLightPowderedBlue, 0.8);
-                                }
-                            }
-                        }
-
-                        &-misc {
-                            font-size: $defaultFontSize - 1;
-                            @include Flex(column);
-                            flex: 1;
-                            justify-content: space-between;
-
-                            .used {
-                                @include Flex(row);
-                                list-style-type: none !important;
-                                justify-content: center;
-                                flex-wrap: wrap;
-                                overflow: hidden;
-                                margin: 5px 0;
-
-                                li {
-                                    background: rgba(
-                                        $colorLightPowderedBlue,
-                                        0.8
-                                    );
-                                    padding: 4px 5px;
-                                    margin: 3px;
-                                    @include BorderRadius(2px, all);
-                                    font-size: $defaultFontSize - 4;
-                                    text-transform: uppercase;
-                                    letter-spacing: 0.3px;
-                                    color: $primaryForeground;
-                                }
-                            }
-
-                            .time {
-                                color: $colorGray;
-                                padding: 5px;
-                            }
-                        }
-                    }
-
-                    &:hover {
-                        @include Box-Shadow(0px 0px 5px 0px rgba($Black, 0.3));
-                    }
-                }
-            }
-
-            &-blog-menu {
-                width: 270px;
-                height: 100%;
-                background: $primaryBackground;
-                position: fixed;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                margin: 0px;
-                margin-right: -275px;
-                @include Flex(column);
-                transition: all 0.3s ease-in;
-                @include Box-Shadow(-1px 0px 10px 1px $Black);
-
-                h1 {
-                    font-size: $defaultFontSize + 15;
-                    padding: 20px;
-                    cursor: pointer;
-                }
-
-                ul {
-                    list-style-type: none !important;
-                    width: 100%;
-                    @include Flex(column);
-                    align-content: center;
-                    align-items: center;
-                    margin: 20px 0 !important;
-
-                    li {
-                        width: 100%;
-
-                        a,
-                        a:visited {
-                            display: block;
-                            color: $primaryForeground;
-                            text-decoration: none;
-                            font-size: $defaultFontSize + 5;
-                            @include Font($defaultFontFamily);
-                            font-weight: bold;
-                            text-transform: uppercase;
-                            letter-spacing: 1px;
-                            padding: 20px;
-                            margin: 0 !important;
-                            @include Transition(background, 0.4s, ease-in-out);
-                            text-align: center;
-
-                            i[class^="fa"] {
-                                margin-right: 10px;
-                            }
-
-                            &:hover {
-                                background: rgba($colorDarkCrimson, 0.2);
-                            }
-                        }
-                    }
-                }
-            }
-
-            &-search {
-                @include Flex(column);
-                flex-wrap: wrap;
-                justify-content: center;
-                align-content: center;
-                padding: 20px;
-                @include breakpoint(xs) {
-                    padding: 0;
-                }
-                @include breakpoint(sm) {
-                    padding: 0;
-                }
-                @include breakpoint(md) {
-                    padding: 20px;
-                }
-
-                form {
-                    @include Flex(column);
-                    margin-bottom: 10px;
-
-                    div {
-                        @include Flex(row);
-
-                        input[type="text"] {
-                            display: block;
-                            width: 100%;
-                            overflow: hidden;
-                            height: 40px;
-                            background: rgba($_colorMineShaft, 0.65);
-                            outline: 0;
-                            border: 0;
-                            @include BorderRadius(20px, all);
-                            padding: 0 20px;
-                            color: $colorGray;
-                            @include Font($defaultFontFamily);
-                            @include Transition(all, 0.3s, ease-in-out);
-                            font-size: $defaultFontSize + 2;
-                            justify-content: flex-start;
-                            align-content: center;
-                            align-items: center;
-
-                            &:focus {
-                                @include Box-Shadow(
-                                    0px 0px 20px 1px rgba($Black, 0.1)
-                                );
-                            }
-                        }
-
-                        .button {
-                            @include Font($defaultFontFamily);
-                            margin: 0 0 0 20px;
-                            @include Flex(row);
-                            min-width: 100px;
-                            justify-content: center;
-                            align-items: center;
-                            align-content: center;
-                            border: 0;
-                            outline: 0;
-                            @include BorderRadius(4px, all);
-                            background: $primaryBackground;
-                            border: 2px solid $_colorMineShaft;
-                            cursor: pointer;
-                            color: $colorGray;
-                            font-size: $defaultFontSize + 1;
-                            @include Transition(all, 0.3s, ease-in-out);
-
-                            &:hover {
-                                border: 2px solid $primaryForeground;
-                                color: $primaryForeground;
-                            }
-                        }
-                    }
-                }
-
-                .search-result {
-                    padding: 20px 0;
-                    @include Flex(row);
-                    justify-content: center;
-                    align-content: center;
-                    align-items: center;
-                    @include Font($defaultFontSize);
-                    font-size: $defaultFontSize * 1.6;
-
-                    code {
-                        background: $colorDarkCrimson;
-                        color: $primaryForeground;
-                        margin-left: 10px;
-                        padding: 5px 7px;
-                        @include BorderRadius(2px, all);
-                    }
-                }
-
-                &-result-wrapper {
-                    margin: 20px 0;
-                    padding: 20px;
-                    @include Flex(row);
-                    flex-wrap: wrap;
-
-                    h5 {
-                        flex: 1;
-                    }
-
-                    &-entry {
-                        flex: 0 0 45%;
-                        background: $colorMineShaft;
-                        margin: 10px;
-                        @include Flex(column);
-                        padding: 20px;
-                        @include BorderRadius(3px, all);
-
-                        h5 {
-                            font-size: $defaultFontSize + 3;
-                            line-height: $defaultFontSize * 1.8;
-                            @include Flex(row);
-                            flex-wrap: nowrap;
-                            overflow: hidden;
-                            align-content: center;
-                            align-items: center;
-                            justify-content: flex-start;
-
-                            a,
-                            a:visited {
-                                @include Font($defaultFontFamily);
-                                font-size: $defaultFontSize + 3;
-                                line-height: $defaultFontSize + 10;
-                                color: $primaryForeground;
-                                text-decoration: none;
-                                letter-spacing: 0.5px;
-                                margin: 10px 15px;
-                                @include Transition(color, 0.3s, ease-in-out);
-
-                                &:hover {
-                                    color: $colorDarkCrimson;
-                                }
-                            }
-                        }
-
-                        .tags {
-                            @include Flex(row);
-                            justify-content: flex-start;
-                            flex-wrap: wrap;
-                            align-content: center;
-                            align-items: center;
-                            margin: 5px 0;
-
-                            .tag {
-                                padding: 5px 7px;
-                                background: $LimedSpruce;
-                                font-size: $defaultFontSize - 5;
-                                margin: 5px;
-                                letter-spacing: 0.5px;
-                                @include BorderRadius(2px, all);
-
-                                i[class^="fa"] {
-                                    margin-right: 5px;
-                                    font-size: $defaultFontSize - 5;
-                                }
-                            }
-                        }
-
-                        p {
-                            @include Font($defaultFontFamily);
-                            font-size: $defaultFontSize;
-                            color: $colorGray;
-                            letter-spacing: 0.5px;
-                            line-height: $defaultFontSize + 5;
-                            margin: 5px 0;
-                        }
-
-                        .post-misc {
-                            margin: 5px 0;
-                            @include Flex(row);
-                            justify-content: space-between;
-
-                            span {
-                                @include Font($defaultFontFamily);
-                                font-size: $defaultFontSize - 2;
-                                text-transform: capitalize;
-                                color: $primaryForeground;
-
-                                i[class^="fa"] {
-                                    margin-right: 5px;
-                                    font-size: $defaultFontSize - 3;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            .pagination {
-                margin: 50px 0;
-                @include Flex(row);
-                justify-content: center;
-
-                a,
-                a:visited {
-                    color: $colorLightPowderedBlue;
-                    text-decoration: none;
-                    padding: 15px;
-                    margin: 10px;
-                    background: $colorMineShaft;
-                    color: $primaryForeground;
-                    @include BorderRadius(3px, all);
-                    line-height: $defaultFontSize + 1;
-                    @include Transition(border, 0.3s, ease-in-out);
-                    border: 2px solid transparent;
-
-                    &:hover {
-                        border: 2px solid $colorGray;
-                    }
-                }
-
-                .active-page {
-                    border: 2px solid $colorDarkCrimson !important;
-                }
-            }
-        }
-
-        .toTop {
-            position: fixed;
-            bottom: 0;
-            right: 25px;
-            background: $colorLightPowderedBlue;
-            font-size: 11px;
-            text-transform: uppercase;
-            z-index: 99;
-            @include Flex(row);
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-            display: none;
-            text-decoration: none;
-
-            i[class^="fa"] {
-                background: #1f3341;
-                color: $primaryForeground;
-                padding: 8px 10px;
-                border-top-left-radius: 3px;
-            }
-
-            span {
-                @include Font($defaultFontFamily);
-                color: $primaryForeground;
-                padding: 8px 15px;
-                border-top-right-radius: 3px;
-            }
-        }
-    }
-
-    // Animations
-    .fade {
-        animation-name: fade;
-        animation-duration: 2s;
-    }
-    @keyframes fade {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
+	@include Font($defaultFontFamily);
+	font-size: $defaultFontSize;
+
+	sup,
+	sub {
+		a,
+		a:visited {
+			color: $colorLightPowderedBlue;
+		}
+	}
+
+	.main-wrapper {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		overflow: hidden;
+		@include Flex(row);
+		background: $colorMineShaft;
+
+		.sidebar {
+			height: 100%;
+			background: $Black;
+			color: $primaryForeground;
+			@include Box-Shadow(0 0 1px 1px rgba($Black, 0.6));
+			@include Flex(column);
+			justify-content: space-between;
+
+			&-logo {
+				padding: 20px;
+				margin: 10px 0 0 0;
+
+				a,
+				a:visited {
+					text-decoration: none;
+					text-transform: none;
+					@include Font($defaultFontFamily);
+					font-weight: bold;
+					text-align: center;
+					letter-spacing: 2px;
+					padding: 6px;
+					border: 2px solid $primaryForeground;
+					@include BorderRadius(2px, all);
+					cursor: pointer;
+					@include Transition(border, 0.4s, ease-in-out);
+					color: $primaryForeground;
+
+					&:hover {
+						border: 2px solid $primaryIndexed;
+					}
+				}
+			}
+
+			&-list {
+				list-style-type: none;
+				@include Flex(column);
+				align-content: center;
+
+				li {
+					display: block;
+					position: relative;
+					border-left: 4px solid transparent;
+					@include Transition(border-left, 0.3s, ease-in-out);
+
+					a,
+					a:visited {
+						@include Transform(270deg);
+						text-align: center;
+						color: $primaryForeground;
+						text-decoration: none;
+						@include Font($defaultFontFamily);
+						font-weight: bold;
+						letter-spacing: 2px;
+						font-size: $defaultFontSize - 3;
+						text-transform: uppercase;
+						display: block;
+						padding: 35px 0px;
+					}
+
+					&:hover {
+						border-left: 4px solid $primaryIndexed;
+					}
+				}
+			}
+
+			&-footer {
+				margin-bottom: 30px;
+
+				&-list {
+					@include Flex(column);
+					align-items: center;
+					list-style-type: none;
+
+					li {
+						width: 100%;
+						font-size: $defaultFontSize + 3;
+
+						a,
+						a:visited {
+							display: block;
+							color: $primaryForeground;
+							text-align: center;
+							padding: 10px;
+							@include Transition(color, 0.3s, ease-in-out);
+						}
+
+						&:hover {
+							a,
+							a:visited {
+								color: $primaryIndexed;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.container {
+			flex: 1;
+			overflow: auto;
+			background: $primaryForeground;
+			@include Flex(column);
+			padding: 60px;
+
+			&-inner {
+				flex: 1;
+				@include Flex(column);
+
+				&-header {
+					@include Flex(row);
+					justify-content: space-between;
+
+					&-navigation {
+						flex: 1;
+						@include Flex(row);
+						justify-content: center;
+						align-content: center;
+						align-items: center;
+
+						a,
+						a:visited {
+							letter-spacing: 1px;
+							font-family: $Yorkten;
+							font-size: 18px;
+							font-weight: bold;
+							position: relative;
+							text-decoration: none;
+							margin: 0 30px;
+							padding: 8px 0;
+							color: $colorMineShaft;
+
+							&:hover {
+								color: $colorMineShaft;
+
+								&:hover:before {
+									visibility: visible;
+									-webkit-transform: scaleX(1);
+									transform: scaleX(1);
+								}
+							}
+
+							&:before {
+								content: "";
+								position: absolute;
+								width: 100%;
+								height: 4px;
+								bottom: 0;
+								left: 0;
+								background-color: $colorMineShaft;
+								visibility: hidden;
+								-webkit-transform: scaleX(0);
+								transform: scaleX(0);
+								-webkit-transition: all 0.3s ease-in-out 0s;
+								transition: all 0.3s ease-in-out 0s;
+							}
+						}
+					}
+				}
+				&-body {
+					flex: 1;
+					@include Flex(column);
+					justify-content: center;
+					align-content: center;
+					align-items: center;
+
+					&-logo {
+						font-family: $Serenade;
+						font-size: 100px;
+						align-self: center;
+					}
+				}
+				&-footer {
+					&-socials {
+						a,
+						a:visited {
+							font-size: 22px;
+							text-decoration: none;
+							color: $colorMineShaft;
+							margin: 0 25px 0 0;
+						}
+					}
+				}
+			}
+
+			.post-background {
+				@include Flex(column);
+				justify-content: center;
+				align-content: center;
+				align-items: center;
+				position: relative;
+				height: 400px;
+				margin: -20px;
+
+				&-poster {
+					background: no-repeat top center;
+					background-attachment: scroll;
+					background-size: cover;
+					flex: 1;
+					width: 100%;
+					width: -moz-available;
+					width: -webkit-fill-available;
+					width: fill-available;
+					min-height: 400px;
+					max-height: 400px;
+					z-index: 1;
+					opacity: 0.1;
+					margin: -20px;
+					padding: 0;
+					position: absolute;
+					filter: url("data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg'&gt;&lt;filter id='grayscale'&gt;&lt;feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
+					filter: gray; /* IE6-9 */
+					-webkit-filter: grayscale(
+						100%
+					); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+				}
+
+				&-header {
+					@include Flex(column);
+					justify-content: center;
+					flex-direction: column;
+					align-items: center;
+					align-content: center;
+					opacity: 1;
+					z-index: 9;
+
+					.post-title {
+						font-size: $defaultFontSize * 1.5;
+						// margin: 10px 0;
+
+						i[class^="fa"] {
+							margin-right: 5px;
+						}
+					}
+
+					.post-meta {
+						margin: 20px 0;
+					}
+
+					.post-misc-meta {
+						width: auto;
+						padding: 5px;
+
+						&-categories {
+							margin: 5px 0;
+							@include Flex(row);
+							justify-content: center;
+							align-content: center;
+							align-items: center;
+
+							span {
+								@include Font($defaultFontFamily);
+								font-size: $defaultFontSize - 3;
+								padding: 5px 7px;
+								background: $colorDarkCrimson;
+								text-transform: uppercase;
+								letter-spacing: 0.5px;
+								@include BorderRadius(2px, all);
+
+								i[class^="fa"] {
+									margin-right: 5px;
+								}
+							}
+						}
+
+						&-tags {
+							padding: 5px 0;
+
+							span {
+								@include Font($defaultFontFamily);
+								font-size: $defaultFontSize - 5;
+								padding: 5px 7px;
+								background: $colorMineShaft;
+								text-transform: uppercase;
+								letter-spacing: 0.8px;
+								@include BorderRadius(2px, all);
+								margin-right: 5px;
+
+								i[class^="fa"] {
+									margin-right: 5px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&-blog-header {
+				@include Flex(row);
+				padding: 30px 0;
+				justify-content: space-between;
+
+				h1 {
+					@include Font($defaultFontFamily);
+					font-size: $defaultFontSize * 1.5;
+					font-weight: bold;
+					letter-spacing: 1px;
+					padding: 0 15px;
+					text-transform: uppercase;
+
+					a,
+					a:visited {
+						color: $primaryForeground;
+
+						i[class^="fa"] {
+							margin-right: 7px;
+						}
+					}
+
+					.menu-toggle {
+						color: $primaryForeground !important;
+
+						&:hover {
+							color: $colorGray;
+							text-decoration: none;
+							border-bottom: 2px solid transparent !important;
+						}
+					}
+				}
+			}
+
+			&-blog {
+				@include Flex(row);
+				flex-flow: wrap;
+				justify-content: center;
+				align-content: stretch;
+
+				article {
+					@include Flex(column);
+				}
+
+				&-entry {
+					@include breakpoint(xs) {
+						flex: 1;
+						flex-basis: auto;
+					}
+					@include breakpoint(md) {
+						flex: 0 0 47%;
+					}
+					background: $colorMineShaft;
+					margin: 10px;
+					@include BorderRadius(3px, all);
+					@include Box-Shadow(
+						0px 0px 5px 1px rgba($primaryBackground, 0.75)
+					);
+
+					&-inner {
+						@include Flex(row);
+						justify-content: flex-start;
+						align-items: center;
+						align-content: center;
+						padding: 20px;
+
+						&-icon {
+							margin: 20px;
+							font-size: $defaultFontSize + 10;
+							color: $colorGray;
+
+							@include breakpoint(xs) {
+								display: none;
+							}
+						}
+
+						&-entry {
+							flex: 1;
+							padding: 10px;
+
+							.highlight {
+								margin: 20px 0;
+								background: #272822;
+								@include Font($defaultCodeFontFamily);
+								line-height: $defaultFontSize + 5;
+
+								pre {
+									padding: 20px;
+								}
+							}
+
+							.title {
+								@include Font($defaultFontFamily);
+								font-size: $defaultFontSize + 3;
+								line-height: $defaultFontSize + 10;
+								color: $primaryForeground;
+								text-decoration: none;
+								letter-spacing: 0.5px;
+								margin: 10px 0;
+								@include Transition(color, 0.3s, ease-in-out);
+
+								&:hover {
+									color: $colorDarkCrimson;
+								}
+							}
+
+							p {
+								@include Font($defaultFontFamily);
+								font-size: $defaultFontSize;
+								line-height: $defaultFontSize + 5;
+								letter-spacing: 0.5px;
+								margin: 10px 0;
+								color: $colorGray;
+
+								a,
+								a:visited {
+									color: $colorLightPowderedBlue;
+									text-decoration: none;
+									border-bottom: 2px solid transparent;
+									@include Transition(
+										border-bottom,
+										0.3s,
+										ease-in-out
+									);
+
+									&:hover {
+										border-bottom: 2px solid
+											rgba($colorLightPowderedBlue, 0.8);
+									}
+								}
+							}
+
+							&-post-date {
+								@include Flex(row);
+								justify-content: space-between;
+								align-content: center;
+								align-items: center;
+								margin: 20px 0;
+								color: rgba($colorGray, 0.6);
+
+								time {
+									margin-left: 7px;
+								}
+
+								span {
+									@include Font($defaultFontFamily);
+									font-size: $defaultFontSize - 5;
+									padding: 5px 7px;
+									background: $colorDarkCrimson;
+									text-transform: uppercase;
+									letter-spacing: 0.8px;
+									@include BorderRadius(2px, all);
+									color: $primaryForeground;
+									margin: 0 5px 0 0;
+
+									i[class^="fa"] {
+										margin-right: 5px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&-post-with-header {
+				margin-top: 0;
+			}
+
+			&-post {
+				@include Flex(column);
+				// padding: 20px;
+
+				.post-content {
+					color: $colorGray;
+					font-size: $defaultFontSize + 1;
+					padding: 20px;
+
+					hr {
+						margin: 40px 0;
+					}
+
+					h1,
+					h2,
+					h3,
+					h4,
+					h5,
+					h6 {
+						text-transform: capitalize;
+						letter-spacing: 0.5px;
+						color: $primaryForeground;
+						margin: 15px 0;
+
+						a,
+						a:visited {
+							color: $colorLightPowderedBlue;
+							text-decoration: none;
+							border-bottom: 2px solid transparent;
+							@include Transition(
+								border-bottom,
+								0.3s,
+								ease-in-out
+							);
+
+							&:hover {
+								border-bottom: 2px solid
+									rgba($colorLightPowderedBlue, 0.8);
+							}
+						}
+					}
+					h1 {
+						font-size: $defaultFontSize + 6;
+					}
+					h2 {
+						font-size: $defaultFontSize + 5;
+					}
+					h3 {
+						font-size: $defaultFontSize + 4;
+					}
+					h4 {
+						font-size: $defaultFontSize + 3;
+					}
+					h5 {
+						font-size: $defaultFontSize + 2;
+					}
+					h6 {
+						font-size: $defaultFontSize + 1;
+					}
+
+					blockquote {
+						padding: 10px 20px;
+						margin: 15px 0 15px 0;
+						border-left: 4px solid $colorDarkCrimson;
+						background: rgba(211, 212, 212, 0.1);
+						color: #d3d4d4;
+						position: relative;
+						background-color: #272822;
+
+						&::before {
+							font-family: FontAwesome;
+							content: "\f10d";
+							font-size: 42px;
+							position: absolute;
+							top: 10px;
+							left: 15px;
+							opacity: 0.1;
+						}
+					}
+
+					p > a {
+						& > img {
+							max-width: 100%;
+							display: block;
+							margin: 0 auto;
+							clear: both;
+							margin-top: 20px;
+							margin-bottom: 20px;
+						}
+
+						.fleft {
+							float: left;
+						}
+						.fright {
+							float: right;
+						}
+						.fcenter {
+							float: center;
+						}
+					}
+
+					p {
+						@include Font($defaultFontFamily);
+						font-size: $defaultFontSize + 1;
+						line-height: $defaultFontSize * 1.7;
+						letter-spacing: 0.5px;
+						margin: 10px 0;
+						color: $colorGray;
+
+						a,
+						a:visited {
+							color: $colorLightPowderedBlue;
+							text-decoration: none;
+							border-bottom: 2px solid transparent;
+							@include Transition(
+								border-bottom,
+								0.3s,
+								ease-in-out
+							);
+
+							img {
+								max-width: 100%;
+								overflow: hidden;
+							}
+
+							&:hover {
+								border-bottom: 2px solid
+									rgba($colorLightPowderedBlue, 0.5);
+							}
+						}
+
+						code {
+							@include Font($defaultCodeFontFamily);
+							background: rgba($colorDarkCrimson, 0.3);
+							color: $primaryForeground;
+							padding: 3px 5px;
+							font-size: $defaultFontSize;
+							@include BorderRadius(2px, all);
+						}
+					}
+
+					.highlight {
+						margin: 20px 0;
+						background: #272822;
+						@include Font($defaultCodeFontFamily);
+						line-height: $defaultFontSize + 5;
+
+						pre {
+							padding: 20px;
+							position: relative;
+							overflow: auto;
+						}
+					}
+
+					ol {
+						list-style-type: decimal;
+						padding: 10px;
+
+						li {
+							@include Font($defaultFontFamily);
+							font-size: $defaultFontSize + 1;
+							line-height: $defaultFontSize + 5;
+							margin: 10px 20px;
+
+							a,
+							a:visited {
+								color: $colorLightPowderedBlue;
+								text-decoration: none;
+								border-bottom: 2px solid transparent;
+								@include Transition(
+									border-bottom,
+									0.3s,
+									ease-in-out
+								);
+
+								&:hover {
+									border-bottom: 2px solid
+										rgba($colorLightPowderedBlue, 0.8);
+								}
+							}
+
+							code {
+								@include Font($defaultCodeFontFamily);
+								background: rgba($colorDarkCrimson, 0.3);
+								color: $primaryForeground;
+								padding: 3px 5px;
+								font-size: $defaultFontSize;
+								@include BorderRadius(2px, all);
+							}
+						}
+					}
+
+					ul {
+						list-style-type: square;
+						padding: 0 20px;
+						margin: 0 20px;
+					}
+				}
+			}
+
+			&-project {
+				@include Flex(row);
+				flex-wrap: wrap;
+				justify-content: center;
+				align-content: center;
+				padding: 20px;
+				@include breakpoint(xs) {
+					padding: 0;
+				}
+				@include breakpoint(sm) {
+					padding: 0;
+				}
+				@include breakpoint(md) {
+					padding: 20px;
+				}
+
+				&-entry {
+					flex: 0 0 48%;
+					@include breakpoint(xs) {
+						flex: 1;
+						flex-basis: auto;
+					}
+					@include breakpoint(sm) {
+						flex: 1;
+						flex-basis: auto;
+					}
+					@include breakpoint(md) {
+						flex: 0 0 48%;
+					}
+					background: $colorMineShaft;
+					margin: 10px;
+					@include Flex(column);
+					@include BorderRadius(3px, all);
+					@include Transition(box-shadow, 0.3s, ease-in-out);
+
+					&-poster {
+						background-size: cover;
+						background-position: center;
+						min-height: 250px;
+						max-height: 250px;
+						overflow: hidden;
+						opacity: 0.7;
+						cursor: pointer;
+						@include BorderRadius(3px, top);
+
+						&:hover {
+							opacity: 0.9;
+						}
+					}
+
+					&-info {
+						padding: 15px;
+						flex: 1;
+
+						h1 {
+							@include Font($defaultFontFamily);
+							font-size: $defaultFontSize + 2;
+							letter-spacing: 0.6px;
+							margin: 10px 0;
+
+							a,
+							a:visited {
+								color: $colorLightPowderedBlue;
+								text-decoration: none;
+								border-bottom: 2px solid transparent;
+								@include Transition(
+									border-bottom,
+									0.3s,
+									ease-in-out
+								);
+
+								&:hover {
+									border-bottom: 2px solid
+										rgba($colorLightPowderedBlue, 0.8);
+								}
+							}
+						}
+
+						p {
+							color: $colorGray;
+							@include Font($defaultFontFamily);
+							font-size: $defaultFontSize;
+							letter-spacing: 0.5px;
+							line-height: $defaultFontSize * 1.3;
+							margin: 10px 0;
+
+							a,
+							a:visited {
+								color: $colorLightPowderedBlue;
+								text-decoration: none;
+								border-bottom: 2px solid transparent;
+								@include Transition(
+									border-bottom,
+									0.3s,
+									ease-in-out
+								);
+
+								&:hover {
+									border-bottom: 2px solid
+										rgba($colorLightPowderedBlue, 0.8);
+								}
+							}
+						}
+
+						&-misc {
+							font-size: $defaultFontSize - 1;
+							@include Flex(column);
+							flex: 1;
+							justify-content: space-between;
+
+							.used {
+								@include Flex(row);
+								list-style-type: none !important;
+								justify-content: center;
+								flex-wrap: wrap;
+								overflow: hidden;
+								margin: 5px 0;
+
+								li {
+									background: rgba(
+										$colorLightPowderedBlue,
+										0.8
+									);
+									padding: 4px 5px;
+									margin: 3px;
+									@include BorderRadius(2px, all);
+									font-size: $defaultFontSize - 4;
+									text-transform: uppercase;
+									letter-spacing: 0.3px;
+									color: $primaryForeground;
+								}
+							}
+
+							.time {
+								color: $colorGray;
+								padding: 5px;
+							}
+						}
+					}
+
+					&:hover {
+						@include Box-Shadow(0px 0px 5px 0px rgba($Black, 0.3));
+					}
+				}
+			}
+
+			&-blog-menu {
+				width: 270px;
+				height: 100%;
+				background: $primaryBackground;
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: 0px;
+				margin-right: -275px;
+				@include Flex(column);
+				transition: all 0.3s ease-in;
+				@include Box-Shadow(-1px 0px 10px 1px $Black);
+
+				h1 {
+					font-size: $defaultFontSize + 15;
+					padding: 20px;
+					cursor: pointer;
+				}
+
+				ul {
+					list-style-type: none !important;
+					width: 100%;
+					@include Flex(column);
+					align-content: center;
+					align-items: center;
+					margin: 20px 0 !important;
+
+					li {
+						width: 100%;
+
+						a,
+						a:visited {
+							display: block;
+							color: $primaryForeground;
+							text-decoration: none;
+							font-size: $defaultFontSize + 5;
+							@include Font($defaultFontFamily);
+							font-weight: bold;
+							text-transform: uppercase;
+							letter-spacing: 1px;
+							padding: 20px;
+							margin: 0 !important;
+							@include Transition(background, 0.4s, ease-in-out);
+							text-align: center;
+
+							i[class^="fa"] {
+								margin-right: 10px;
+							}
+
+							&:hover {
+								background: rgba($colorDarkCrimson, 0.2);
+							}
+						}
+					}
+				}
+			}
+
+			&-search {
+				@include Flex(column);
+				flex-wrap: wrap;
+				justify-content: center;
+				align-content: center;
+				padding: 20px;
+				@include breakpoint(xs) {
+					padding: 0;
+				}
+				@include breakpoint(sm) {
+					padding: 0;
+				}
+				@include breakpoint(md) {
+					padding: 20px;
+				}
+
+				form {
+					@include Flex(column);
+					margin-bottom: 10px;
+
+					div {
+						@include Flex(row);
+
+						input[type="text"] {
+							display: block;
+							width: 100%;
+							overflow: hidden;
+							height: 40px;
+							background: rgba($_colorMineShaft, 0.65);
+							outline: 0;
+							border: 0;
+							@include BorderRadius(20px, all);
+							padding: 0 20px;
+							color: $colorGray;
+							@include Font($defaultFontFamily);
+							@include Transition(all, 0.3s, ease-in-out);
+							font-size: $defaultFontSize + 2;
+							justify-content: flex-start;
+							align-content: center;
+							align-items: center;
+
+							&:focus {
+								@include Box-Shadow(
+									0px 0px 20px 1px rgba($Black, 0.1)
+								);
+							}
+						}
+
+						.button {
+							@include Font($defaultFontFamily);
+							margin: 0 0 0 20px;
+							@include Flex(row);
+							min-width: 100px;
+							justify-content: center;
+							align-items: center;
+							align-content: center;
+							border: 0;
+							outline: 0;
+							@include BorderRadius(4px, all);
+							background: $primaryBackground;
+							border: 2px solid $_colorMineShaft;
+							cursor: pointer;
+							color: $colorGray;
+							font-size: $defaultFontSize + 1;
+							@include Transition(all, 0.3s, ease-in-out);
+
+							&:hover {
+								border: 2px solid $primaryForeground;
+								color: $primaryForeground;
+							}
+						}
+					}
+				}
+
+				.search-result {
+					padding: 20px 0;
+					@include Flex(row);
+					justify-content: center;
+					align-content: center;
+					align-items: center;
+					@include Font($defaultFontSize);
+					font-size: $defaultFontSize * 1.6;
+
+					code {
+						background: $colorDarkCrimson;
+						color: $primaryForeground;
+						margin-left: 10px;
+						padding: 5px 7px;
+						@include BorderRadius(2px, all);
+					}
+				}
+
+				&-result-wrapper {
+					margin: 20px 0;
+					padding: 20px;
+					@include Flex(row);
+					flex-wrap: wrap;
+
+					h5 {
+						flex: 1;
+					}
+
+					&-entry {
+						flex: 0 0 45%;
+						background: $colorMineShaft;
+						margin: 10px;
+						@include Flex(column);
+						padding: 20px;
+						@include BorderRadius(3px, all);
+
+						h5 {
+							font-size: $defaultFontSize + 3;
+							line-height: $defaultFontSize * 1.8;
+							@include Flex(row);
+							flex-wrap: nowrap;
+							overflow: hidden;
+							align-content: center;
+							align-items: center;
+							justify-content: flex-start;
+
+							a,
+							a:visited {
+								@include Font($defaultFontFamily);
+								font-size: $defaultFontSize + 3;
+								line-height: $defaultFontSize + 10;
+								color: $primaryForeground;
+								text-decoration: none;
+								letter-spacing: 0.5px;
+								margin: 10px 15px;
+								@include Transition(color, 0.3s, ease-in-out);
+
+								&:hover {
+									color: $colorDarkCrimson;
+								}
+							}
+						}
+
+						.tags {
+							@include Flex(row);
+							justify-content: flex-start;
+							flex-wrap: wrap;
+							align-content: center;
+							align-items: center;
+							margin: 5px 0;
+
+							.tag {
+								padding: 5px 7px;
+								background: $LimedSpruce;
+								font-size: $defaultFontSize - 5;
+								margin: 5px;
+								letter-spacing: 0.5px;
+								@include BorderRadius(2px, all);
+
+								i[class^="fa"] {
+									margin-right: 5px;
+									font-size: $defaultFontSize - 5;
+								}
+							}
+						}
+
+						p {
+							@include Font($defaultFontFamily);
+							font-size: $defaultFontSize;
+							color: $colorGray;
+							letter-spacing: 0.5px;
+							line-height: $defaultFontSize + 5;
+							margin: 5px 0;
+						}
+
+						.post-misc {
+							margin: 5px 0;
+							@include Flex(row);
+							justify-content: space-between;
+
+							span {
+								@include Font($defaultFontFamily);
+								font-size: $defaultFontSize - 2;
+								text-transform: capitalize;
+								color: $primaryForeground;
+
+								i[class^="fa"] {
+									margin-right: 5px;
+									font-size: $defaultFontSize - 3;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.pagination {
+				margin: 50px 0;
+				@include Flex(row);
+				justify-content: center;
+
+				a,
+				a:visited {
+					color: $colorLightPowderedBlue;
+					text-decoration: none;
+					padding: 15px;
+					margin: 10px;
+					background: $colorMineShaft;
+					color: $primaryForeground;
+					@include BorderRadius(3px, all);
+					line-height: $defaultFontSize + 1;
+					@include Transition(border, 0.3s, ease-in-out);
+					border: 2px solid transparent;
+
+					&:hover {
+						border: 2px solid $colorGray;
+					}
+				}
+
+				.active-page {
+					border: 2px solid $colorDarkCrimson !important;
+				}
+			}
+		}
+
+		.toTop {
+			position: fixed;
+			bottom: 0;
+			right: 25px;
+			background: $colorLightPowderedBlue;
+			font-size: 11px;
+			text-transform: uppercase;
+			z-index: 99;
+			@include Flex(row);
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+			display: none;
+			text-decoration: none;
+
+			i[class^="fa"] {
+				background: #1f3341;
+				color: $primaryForeground;
+				padding: 8px 10px;
+				border-top-left-radius: 3px;
+			}
+
+			span {
+				@include Font($defaultFontFamily);
+				color: $primaryForeground;
+				padding: 8px 15px;
+				border-top-right-radius: 3px;
+			}
+		}
+	}
+
+	// Animations
+	.fade {
+		animation-name: fade;
+		animation-duration: 2s;
+	}
+	@keyframes fade {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
 }
