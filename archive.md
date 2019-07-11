@@ -8,11 +8,6 @@ permalink: /archive/
     <h1><i class="fas fa-archive"></i>
     <span>Archive ({{ site.posts | size }})</span>
     </h1>
-    <!-- <h1>
-        <a href="#" class="menu-toggle" title="Toggle Menu">
-            <i class="fas fa-ellipsis-v"></i>
-        </a>
-    </h1> -->
 </div>
 
 <div class="container-post">

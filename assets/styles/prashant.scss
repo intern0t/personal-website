@@ -261,8 +261,17 @@ body {
 						align-self: center;
 					}
 
+					.container-blog-header {
+						margin: 50px 0 0;
+
+						h1 {
+							font-weight: bold;
+							font-size: $defaultFontSize * 1.8;
+						}
+					}
+
 					&-post-header {
-						margin: 50px 0 20px 0;
+						margin: 50px 0 0 0;
 
 						.post-background-header {
 							@include Flex(column);
@@ -305,11 +314,15 @@ body {
 									margin: 20px 0;
 
 									span {
-										margin: 0 20px;
+										i {
+											margin: 0 5px;
+										}
+
+										margin: 0 10px 0 0;
 										background: $primaryForeground;
 										color: $primaryBackground;
-										font-size: $defaultFontSize - 3;
-										padding: 5px 9px;
+										font-size: $defaultFontSize - 4;
+										padding: 7px 9px;
 										@include BorderRadius(3px);
 										text-transform: uppercase;
 										letter-spacing: 0.5px;
@@ -337,14 +350,14 @@ body {
 
 										i {
 											margin-right: 4px;
-                                        }
-                                        
-                                        &:hover{
-                                            border: 1px solid transparent;
-                                            background: $primaryForeground;
-                                            color: $primaryBackground;
-                                            cursor: pointer;
-                                        }
+										}
+
+										&:hover {
+											border: 1px solid transparent;
+											background: $primaryForeground;
+											color: $primaryBackground;
+											cursor: pointer;
+										}
 									}
 								}
 							}
@@ -356,9 +369,118 @@ body {
 						padding: $defaultFontSize;
 
 						.post-content {
+							code {
+								text-transform: none;
+								@include BorderRadius(3px);
+								background: rgba($primaryIndexed, 0.2);
+								padding: 3px 8px;
+								font-size: $defaultFontSize - 3;
+								line-height: $defaultFontSize - 2;
+								font-weight: normal;
+								letter-spacing: 0.2px;
+								font-family: $codeFont;
+								color: rgba($primaryForeground, 0.9);
+							}
+
 							p {
-                                margin: 20px 0;
-                                line-height: $defaultFontSize + 10;
+								margin: 20px 0;
+								font-size: $defaultFontSize;
+								line-height: $defaultFontSize + 12;
+
+								a[data-rel="lightcase"] {
+									img {
+										max-width: 100%;
+										align-self: center;
+									}
+								}
+
+								a {
+									display: unset;
+								}
+							}
+
+							h1,
+							h2,
+							h3,
+							h4,
+							h5,
+							h6 {
+								text-transform: capitalize;
+								letter-spacing: 0.5px;
+								color: $primaryForeground;
+								margin: 15px 0;
+								padding: $defaultFontSize 0;
+								font-weight: bold;
+							}
+
+							ul {
+								list-style-type: square;
+							}
+
+							ol {
+								list-style-type: decimal;
+							}
+
+							ul,
+							ol {
+								padding: 0 20px;
+
+								li {
+									font-size: $defaultFontSize;
+									line-height: $defaultFontSize + 12;
+								}
+							}
+
+							strong {
+								font-weight: bold;
+							}
+
+							figure {
+								padding: $defaultFontSize + 2;
+								overflow: auto;
+
+								pre {
+									code {
+										background: unset;
+										color: unset;
+										padding: unset;
+										margin: unset;
+										font-size: $defaultFontSize - 3;
+										line-height: $defaultFontSize + 3;
+										font-family: $codeFont;
+									}
+								}
+							}
+
+							blockquote {
+								padding: 10px 20px;
+								margin: ($defaultFontSize * 2) 0
+									($defaultFontSize * 2) 0;
+								border-left: 7px solid $colorDarkCrimson;
+								position: relative;
+								background-color: $colorMineShaft;
+
+								&::before {
+									color: $primaryBackground;
+									font-family: FontAwesome;
+									content: "\f10d";
+									font-size: $defaultFontSize * 2.5;
+									position: absolute;
+									top: 10px;
+									left: 15px;
+									opacity: 0.1;
+								}
+
+								p {
+									color: rgba($primaryBackground, 0.6);
+									padding: 0 10px;
+									font-family: $codeFont;
+									font-size: $defaultFontSize - 3;
+								}
+							}
+
+							img {
+								align-self: center;
 							}
 						}
 					}
@@ -765,6 +887,11 @@ body {
 
 						p {
 							color: rgba($primaryBackground, 0.5);
+
+							a,
+							a:visited {
+								color: $colorLightPowderedBlue;
+							}
 						}
 					}
 

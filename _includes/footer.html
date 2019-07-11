@@ -1,27 +1,39 @@
 <div class="container-inner-footer">
     <div class="container-inner-footer-socials">
-        <a href="#" title="#">
-            <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" title="#">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="#" title="#">
-            <i class="fab fa-github-alt"></i>
-        </a>
-        <a href="#" title="#">
-            <i class="fab fa-bitbucket"></i>
-        </a>
-        <a href="#" title="#">
-            <i class="fab fa-gitlab"></i>
-        </a>
-        <a href="#" title="#">
+        {% if site.socials.email %}
+        <a href="{{ site.socials.email | prepend: 'mailto:' }}" title="#" target="_blank">
             <i class="far fa-envelope"></i>
         </a>
+        {% endif %}
+        {% if site.socials.github %}
+        <a href="{{ site.socials.github | prepend: 'https://github.com/' }}" title="#" target="_blank">
+            <i class="fab fa-github-alt"></i>
+        </a>
+        {% endif %}
+        {% if site.socials.bitbucket %}
+        <a href="{{ site.socials.bitbucket | prepend: 'https://bitbucket.com/' }}" title="#" target="_blank">
+            <i class="fab fa-bitbucket"></i>
+        </a>
+        {% endif %}
+        {% if site.socials.gitlab %}
+        <a href="{{ site.socials.gitlab | prepend: 'https://gitlab.com/' }}" title="#" target="_blank">
+            <i class="fab fa-gitlab"></i>
+        </a>
+        {% endif %}
+        {% if site.socials.twitter %}
+        <a href="{{ site.socials.twitter | prepend: 'https://twitter.com/' }}" title="#" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+        {% endif %}
+        {% if site.socials.linkedin %}
+        <a href="{{ site.socials.linkedin | prepend: 'https://linkedin.com/' }}" title="#" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        {% endif %}
     </div>
     <div class="container-inner-footer-copyright">
         <a href="#" title="Copyright &copy; 2019, Prashant Shrestha">
-            Copyright &copy; 2019+
+            Copyright &copy; 2019+, Prashant Shrestha
         </a>
     </div>
 </div>
