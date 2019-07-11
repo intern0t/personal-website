@@ -5,12 +5,7 @@ permalink: /library/
 ---
 
 <div class="container-blog-header">
-    <h1><i class="fas fa-book-reader"></i> Library/References</h1>
-    <h1>
-        <a href="#" class="menu-toggle" title="Toggle Menu">
-            <i class="fas fa-ellipsis-v"></i>
-        </a>
-    </h1>
+    <h1><i class="fas fa-book-reader"></i> <span>Library/References</span></h1>
 </div>
 
 <div class="container-post">
