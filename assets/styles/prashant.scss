@@ -52,7 +52,7 @@ body {
 			height: 100%;
 			background: $Black;
 			color: $primaryForeground;
-			@include Box-Shadow(0 0 1px 1px rgba($Black, 0.6));
+			// @include Box-Shadow(0 0 1px 1px rgba($Black, 0.6));
 			@include Flex(column);
 			justify-content: space-between;
 
@@ -260,6 +260,108 @@ body {
 						}
 						align-self: center;
 					}
+
+					&-post-header {
+						margin: 50px 0 20px 0;
+
+						.post-background-header {
+							@include Flex(column);
+							justify-content: center;
+							align-items: center;
+							align-content: center;
+
+							.post-title {
+								margin: $defaultFontSize 0;
+
+								i {
+									font-size: $defaultFontSize * 1.8;
+								}
+
+								span {
+									font-size: $defaultFontSize * 1.7;
+									line-height: $defaultFontSize * 2.5;
+									margin-left: $defaultFontSize - 8;
+								}
+							}
+
+							.post-meta {
+								margin: $defaultFontSize 0;
+
+								time {
+									font-size: $defaultFontSize - 3;
+									color: $colorGray;
+									text-transform: uppercase;
+									letter-spacing: 0.3px;
+								}
+							}
+
+							.post-misc-meta {
+								@include Flex(column);
+								justify-content: center;
+								align-content: center;
+								align-items: center;
+
+								&-categories {
+									margin: 20px 0;
+
+									span {
+										margin: 0 20px;
+										background: $primaryForeground;
+										color: $primaryBackground;
+										font-size: $defaultFontSize - 3;
+										padding: 5px 9px;
+										@include BorderRadius(3px);
+										text-transform: uppercase;
+										letter-spacing: 0.5px;
+									}
+								}
+
+								&-tags {
+									@include Flex(row);
+									justify-content: flex-start;
+									align-content: center;
+									align-items: center;
+									margin: 20px 0;
+									flex-wrap: wrap;
+
+									span {
+										margin: 0 10px 10px 0;
+										border: 1px solid $primaryForeground;
+										color: $primaryForeground;
+										font-size: $defaultFontSize - 6;
+										line-height: $defaultFontSize;
+										padding: 5px 9px;
+										@include BorderRadius(3px);
+										text-transform: uppercase;
+										letter-spacing: 0.5px;
+
+										i {
+											margin-right: 4px;
+                                        }
+                                        
+                                        &:hover{
+                                            border: 1px solid transparent;
+                                            background: $primaryForeground;
+                                            color: $primaryBackground;
+                                            cursor: pointer;
+                                        }
+									}
+								}
+							}
+						}
+					}
+
+					&-post {
+						width: 100%;
+						padding: $defaultFontSize;
+
+						.post-content {
+							p {
+                                margin: 20px 0;
+                                line-height: $defaultFontSize + 10;
+							}
+						}
+					}
 				}
 				&-footer {
 					@include Flex(row);
@@ -298,280 +400,280 @@ body {
 				}
 			}
 
-			.post-background {
-				@include Flex(column);
-				justify-content: center;
-				align-content: center;
-				align-items: center;
-				position: relative;
-				height: 400px;
-				margin: -20px;
+			// .post-background {
+			// 	@include Flex(column);
+			// 	justify-content: center;
+			// 	align-content: center;
+			// 	align-items: center;
+			// 	position: relative;
+			// 	height: 400px;
+			// 	margin: -20px;
 
-				&-poster {
-					background: no-repeat top center;
-					background-attachment: scroll;
-					background-size: cover;
-					flex: 1;
-					width: 100%;
-					width: -moz-available;
-					width: -webkit-fill-available;
-					width: fill-available;
-					min-height: 400px;
-					max-height: 400px;
-					z-index: 1;
-					opacity: 0.1;
-					margin: -20px;
-					padding: 0;
-					position: absolute;
-					filter: url("data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg'&gt;&lt;filter id='grayscale'&gt;&lt;feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
-					filter: gray; /* IE6-9 */
-					-webkit-filter: grayscale(
-						100%
-					); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
-				}
+			// 	&-poster {
+			// 		background: no-repeat top center;
+			// 		background-attachment: scroll;
+			// 		background-size: cover;
+			// 		flex: 1;
+			// 		width: 100%;
+			// 		width: -moz-available;
+			// 		width: -webkit-fill-available;
+			// 		width: fill-available;
+			// 		min-height: 400px;
+			// 		max-height: 400px;
+			// 		z-index: 1;
+			// 		opacity: 0.1;
+			// 		margin: -20px;
+			// 		padding: 0;
+			// 		position: absolute;
+			// 		filter: url("data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg'&gt;&lt;filter id='grayscale'&gt;&lt;feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/&gt;&lt;/filter&gt;&lt;/svg&gt;#grayscale"); /* Firefox 10+, Firefox on Android */
+			// 		filter: gray; /* IE6-9 */
+			// 		-webkit-filter: grayscale(
+			// 			100%
+			// 		); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+			// 	}
 
-				&-header {
-					@include Flex(column);
-					justify-content: center;
-					flex-direction: column;
-					align-items: center;
-					align-content: center;
-					opacity: 1;
-					z-index: 9;
+			// 	&-header {
+			// 		@include Flex(column);
+			// 		justify-content: center;
+			// 		flex-direction: column;
+			// 		align-items: center;
+			// 		align-content: center;
+			// 		opacity: 1;
+			// 		z-index: 9;
 
-					.post-title {
-						font-size: $defaultFontSize * 1.5;
-						// margin: 10px 0;
+			// 		.post-title {
+			// 			font-size: $defaultFontSize * 1.5;
+			// 			// margin: 10px 0;
 
-						i[class^="fa"] {
-							margin-right: 5px;
-						}
-					}
+			// 			i[class^="fa"] {
+			// 				margin-right: 5px;
+			// 			}
+			// 		}
 
-					.post-meta {
-						margin: 20px 0;
-					}
+			// 		.post-meta {
+			// 			margin: 20px 0;
+			// 		}
 
-					.post-misc-meta {
-						width: auto;
-						padding: 5px;
+			// 		.post-misc-meta {
+			// 			width: auto;
+			// 			padding: 5px;
 
-						&-categories {
-							margin: 5px 0;
-							@include Flex(row);
-							justify-content: center;
-							align-content: center;
-							align-items: center;
+			// 			&-categories {
+			// 				margin: 5px 0;
+			// 				@include Flex(row);
+			// 				justify-content: center;
+			// 				align-content: center;
+			// 				align-items: center;
 
-							span {
-								@include Font($defaultFontFamily);
-								font-size: $defaultFontSize - 3;
-								padding: 5px 7px;
-								background: $colorDarkCrimson;
-								text-transform: uppercase;
-								letter-spacing: 0.5px;
-								@include BorderRadius(2px, all);
+			// 				span {
+			// 					@include Font($defaultFontFamily);
+			// 					font-size: $defaultFontSize - 3;
+			// 					padding: 5px 7px;
+			// 					background: $colorDarkCrimson;
+			// 					text-transform: uppercase;
+			// 					letter-spacing: 0.5px;
+			// 					@include BorderRadius(2px, all);
 
-								i[class^="fa"] {
-									margin-right: 5px;
-								}
-							}
-						}
+			// 					i[class^="fa"] {
+			// 						margin-right: 5px;
+			// 					}
+			// 				}
+			// 			}
 
-						&-tags {
-							padding: 5px 0;
+			// 			&-tags {
+			// 				padding: 5px 0;
 
-							span {
-								@include Font($defaultFontFamily);
-								font-size: $defaultFontSize - 5;
-								padding: 5px 7px;
-								background: $colorMineShaft;
-								text-transform: uppercase;
-								letter-spacing: 0.8px;
-								@include BorderRadius(2px, all);
-								margin-right: 5px;
+			// 				span {
+			// 					@include Font($defaultFontFamily);
+			// 					font-size: $defaultFontSize - 5;
+			// 					padding: 5px 7px;
+			// 					background: $colorMineShaft;
+			// 					text-transform: uppercase;
+			// 					letter-spacing: 0.8px;
+			// 					@include BorderRadius(2px, all);
+			// 					margin-right: 5px;
 
-								i[class^="fa"] {
-									margin-right: 5px;
-								}
-							}
-						}
-					}
-				}
-			}
+			// 					i[class^="fa"] {
+			// 						margin-right: 5px;
+			// 					}
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// }
 
-			&-blog-header {
-				@include Flex(row);
-				// padding: 30px 0;
-				margin: 50px 0 0 0;
-				justify-content: space-between;
+			// &-blog-header {
+			// 	@include Flex(row);
+			// 	// padding: 30px 0;
+			// 	margin: 50px 0 0 0;
+			// 	justify-content: space-between;
 
-				h1 {
-					@include Font($defaultFontFamily);
-					font-size: $defaultFontSize * 2.5;
-					font-weight: bold;
-					letter-spacing: 1px;
-					padding: ($linkBorderBottomHeight * 3) 0;
-					text-transform: capitalize;
+			// 	h1 {
+			// 		@include Font($defaultFontFamily);
+			// 		font-size: $defaultFontSize * 2.5;
+			// 		font-weight: bold;
+			// 		letter-spacing: 1px;
+			// 		padding: ($linkBorderBottomHeight * 3) 0;
+			// 		text-transform: capitalize;
 
-					a,
-					a:visited {
-						color: $primaryForeground;
+			// 		a,
+			// 		a:visited {
+			// 			color: $primaryForeground;
 
-						i[class^="fa"] {
-							margin-right: 7px;
-							// border-bottom: ($linkBorderBottomHeight * 3) transparent;
-						}
-					}
+			// 			i[class^="fa"] {
+			// 				margin-right: 7px;
+			// 				// border-bottom: ($linkBorderBottomHeight * 3) transparent;
+			// 			}
+			// 		}
 
-					span {
-						border-bottom: ($linkBorderBottomHeight * 3) solid #000;
-					}
+			// 		span {
+			// 			border-bottom: ($linkBorderBottomHeight * 2) solid #000;
+			// 		}
 
-					.menu-toggle {
-						color: $primaryForeground !important;
+			// 		.menu-toggle {
+			// 			color: $primaryForeground !important;
 
-						&:hover {
-							color: $colorGray;
-							text-decoration: none;
-							border-bottom: 2px solid transparent !important;
-						}
-					}
-				}
-			}
+			// 			&:hover {
+			// 				color: $colorGray;
+			// 				text-decoration: none;
+			// 				border-bottom: 2px solid transparent !important;
+			// 			}
+			// 		}
+			// 	}
+			// }
 
-			&-blog {
-				@include Flex(row);
-				flex-flow: wrap;
-				justify-content: center;
-				align-content: stretch;
+			// &-blog {
+			// 	@include Flex(row);
+			// 	flex-flow: wrap;
+			// 	justify-content: center;
+			// 	align-content: stretch;
 
-				article {
-					@include Flex(column);
-				}
+			// 	article {
+			// 		@include Flex(column);
+			// 	}
 
-				&-entry {
-					@include breakpoint(xs) {
-						flex: 1;
-						flex-basis: auto;
-					}
-					@include breakpoint(md) {
-						flex: 0 0 47%;
-					}
-					background: $colorMineShaft;
-					margin: 10px;
-					@include BorderRadius(3px, all);
-					@include Box-Shadow(
-						0px 0px 5px 1px rgba($primaryBackground, 0.75)
-					);
+			// 	&-entry {
+			// 		@include breakpoint(xs) {
+			// 			flex: 1;
+			// 			flex-basis: auto;
+			// 		}
+			// 		@include breakpoint(md) {
+			// 			flex: 0 0 47%;
+			// 		}
+			// 		background: $colorMineShaft;
+			// 		margin: 10px;
+			// 		@include BorderRadius(3px, all);
+			// 		// @include Box-Shadow(
+			// 		// 	0px 0px 5px 1px rgba($primaryBackground, 0.75)
+			// 		// );
 
-					&-inner {
-						@include Flex(row);
-						justify-content: flex-start;
-						align-items: center;
-						align-content: center;
-						padding: 20px;
+			// 		&-inner {
+			// 			@include Flex(row);
+			// 			justify-content: flex-start;
+			// 			align-items: center;
+			// 			align-content: center;
+			// 			padding: 20px;
 
-						&-icon {
-							margin: 20px;
-							font-size: $defaultFontSize + 10;
-							color: $colorGray;
+			// 			&-icon {
+			// 				margin: 20px;
+			// 				font-size: $defaultFontSize + 10;
+			// 				color: $colorGray;
 
-							@include breakpoint(xs) {
-								display: none;
-							}
-						}
+			// 				@include breakpoint(xs) {
+			// 					display: none;
+			// 				}
+			// 			}
 
-						&-entry {
-							flex: 1;
-							padding: 10px;
+			// 			&-entry {
+			// 				flex: 1;
+			// 				padding: 10px;
 
-							.highlight {
-								margin: 20px 0;
-								background: #272822;
-								@include Font($defaultCodeFontFamily);
-								line-height: $defaultFontSize + 5;
+			// 				.highlight {
+			// 					margin: 20px 0;
+			// 					background: #272822;
+			// 					@include Font($defaultCodeFontFamily);
+			// 					line-height: $defaultFontSize + 5;
 
-								pre {
-									padding: 20px;
-								}
-							}
+			// 					pre {
+			// 						padding: 20px;
+			// 					}
+			// 				}
 
-							.title {
-								@include Font($defaultFontFamily);
-								font-size: $defaultFontSize + 3;
-								line-height: $defaultFontSize + 10;
-								color: $primaryForeground;
-								text-decoration: none;
-								letter-spacing: 0.5px;
-								margin: 10px 0;
-								@include Transition(color, 0.3s, ease-in-out);
+			// 				.title {
+			// 					@include Font($defaultFontFamily);
+			// 					font-size: $defaultFontSize + 3;
+			// 					line-height: $defaultFontSize + 10;
+			// 					color: $primaryForeground;
+			// 					text-decoration: none;
+			// 					letter-spacing: 0.5px;
+			// 					margin: 10px 0;
+			// 					@include Transition(color, 0.3s, ease-in-out);
 
-								&:hover {
-									color: $colorDarkCrimson;
-								}
-							}
+			// 					&:hover {
+			// 						color: $colorDarkCrimson;
+			// 					}
+			// 				}
 
-							p {
-								@include Font($defaultFontFamily);
-								font-size: $defaultFontSize;
-								line-height: $defaultFontSize + 5;
-								letter-spacing: 0.5px;
-								margin: 10px 0;
-								color: $colorGray;
+			// 				p {
+			// 					@include Font($defaultFontFamily);
+			// 					font-size: $defaultFontSize;
+			// 					line-height: $defaultFontSize + 5;
+			// 					letter-spacing: 0.5px;
+			// 					margin: 10px 0;
+			// 					color: $colorGray;
 
-								a,
-								a:visited {
-									color: $colorLightPowderedBlue;
-									text-decoration: none;
-									border-bottom: $linkBorderBottomHeight solid
-										transparent;
-									@include Transition(
-										border-bottom,
-										0.3s,
-										ease-in-out
-									);
+			// 					a,
+			// 					a:visited {
+			// 						color: $colorLightPowderedBlue;
+			// 						text-decoration: none;
+			// 						border-bottom: $linkBorderBottomHeight solid
+			// 							transparent;
+			// 						@include Transition(
+			// 							border-bottom,
+			// 							0.3s,
+			// 							ease-in-out
+			// 						);
 
-									&:hover {
-										border-bottom: $linkBorderBottomHeight
-											solid
-											rgba($colorLightPowderedBlue, 0.8);
-									}
-								}
-							}
+			// 						&:hover {
+			// 							border-bottom: $linkBorderBottomHeight
+			// 								solid
+			// 								rgba($colorLightPowderedBlue, 0.8);
+			// 						}
+			// 					}
+			// 				}
 
-							&-post-date {
-								@include Flex(row);
-								justify-content: space-between;
-								align-content: center;
-								align-items: center;
-								margin: 20px 0;
-								color: rgba($colorGray, 0.6);
+			// 				&-post-date {
+			// 					@include Flex(row);
+			// 					justify-content: space-between;
+			// 					align-content: center;
+			// 					align-items: center;
+			// 					margin: 20px 0;
+			// 					color: rgba($colorGray, 0.6);
 
-								time {
-									margin-left: 7px;
-								}
+			// 					time {
+			// 						margin-left: 7px;
+			// 					}
 
-								span {
-									@include Font($defaultFontFamily);
-									font-size: $defaultFontSize - 5;
-									padding: 5px 7px;
-									background: $colorDarkCrimson;
-									text-transform: uppercase;
-									letter-spacing: 0.8px;
-									@include BorderRadius(2px, all);
-									color: $primaryForeground;
-									margin: 0 5px 0 0;
+			// 					span {
+			// 						@include Font($defaultFontFamily);
+			// 						font-size: $defaultFontSize - 5;
+			// 						padding: 5px 7px;
+			// 						background: $colorDarkCrimson;
+			// 						text-transform: uppercase;
+			// 						letter-spacing: 0.8px;
+			// 						@include BorderRadius(2px, all);
+			// 						color: $primaryForeground;
+			// 						margin: 0 5px 0 0;
 
-									i[class^="fa"] {
-										margin-right: 5px;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+			// 						i[class^="fa"] {
+			// 							margin-right: 5px;
+			// 						}
+			// 					}
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// }
 
 			&-post-with-header {
 				margin-top: 0;
@@ -584,7 +686,7 @@ body {
 				.post-content {
 					color: $colorGray;
 					font-size: $defaultFontSize + 1;
-					padding: calc($defaultFontSize + 2);
+					padding: $defaultFontSize + 2;
 
 					hr {
 						margin: 40px 0;
@@ -944,7 +1046,7 @@ body {
 				margin-right: -275px;
 				@include Flex(column);
 				transition: all 0.3s ease-in;
-				@include Box-Shadow(-1px 0px 10px 1px $Black);
+				// @include Box-Shadow(-1px 0px 10px 1px $Black);
 
 				h1 {
 					font-size: $defaultFontSize + 15;

@@ -3,69 +3,59 @@ layout: default
 ---
 
 <div class="container">
-    <header class="post-background">
-        <div
-            class="post-background-poster"
-            style="{% if page.poster %} background-image: url({{
-                page.poster
-            }}) {% endif %}"
-        ></div>
-        <div class="post-background-header">
-            <h1 class="post-title" itemprop="name headline">
-                <i class="far fa-file-alt"></i> {{ page.title | escape }}
-            </h1>
-            <p class="post-meta">
-                <time
-                    class="dt-published"
-                    datetime="{{ page.date | date_to_xmlschema }}"
-                    itemprop="datePublished"
-                >
-                    {%- assign date_format = site.minima.date_format | default:
-                    "%b %-d, %Y" -%} {{ page.date | date: date_format }}
-                </time>
-                {%- if page.author -%} •
-                <span
-                    itemprop="author"
-                    itemscope
-                    itemtype="http://schema.org/Person"
-                    ><span class="p-author h-card" itemprop="name">{{
-                        page.author | escape
-                    }}</span></span
-                >
+    <div class="container-inner">
+        <!-- Header -->
+        {% include header.html %}
+
+        <div class="container-inner-body" style="justify-content: center; align-content: center; align-items: center;">
+            <header class="container-inner-body-post-header">
+                <!-- <div class="post-background-poster" style="{% if page.poster %} background-image: url({{
+                        page.poster
+                    }}) {% endif %}"></div> -->
+                <div class="post-background-header">
+                    <!-- Post Title -->
+                    <h1 class="post-title" itemprop="name headline">
+                        <i class="far fa-file-alt"></i> <span>{{ page.title | escape }}</span>
+                    </h1>
+                    <!-- Post Date -->
+                    <p class="post-meta">
+                        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}"
+                            itemprop="datePublished">
+                            {%- assign date_format = site.minima.date_format | default:
+                            "%b %-d, %Y" -%} {{ page.date | date: date_format }}
+                        </time>
+                    </p>
+                    <!-- Categories and Tags -->
+                    <div class="post-misc-meta">
+                        <!-- <h1><i class="fas fa-book"></i> Blog</h1> -->
+                        {% assign categories = page.categories %} {% if categories != ""
+                        %}
+                        <div class="post-misc-meta-categories">
+                            {% for category in categories %}
+                            <span><i class="fas fa-archive"></i>
+                                {{ category | strip }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %} {% assign tags = page.tags %} {% if tags != "" %}
+                        <div class="post-misc-meta-tags">
+                            {% for tag in tags %}<span><i class="fas fa-tag"></i> {{ tag | strip }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </header>
+            <article class="container-inner-body-post {% if page.poster %} container-post-with-header {% endif %}">
+                <div class="post-content" itemprop="articleBody">{{ content }}</div>
+
+                {%- if site.disqus.shortname -%} {%- include disqus_comments.html -%}
                 {%- endif -%}
-            </p>
 
-            <div class="post-misc-meta">
-                <!-- <h1><i class="fas fa-book"></i> Blog</h1> -->
-                {% assign categories = page.categories %} {% if categories != ""
-                %}
-                <div class="post-misc-meta-categories">
-                    {% for category in categories %}
-                    <span
-                        ><i class="fas fa-archive"></i>
-                        {{ category | strip }}</span
-                    >
-                    {% endfor %}
-                </div>
-                {% endif %} {% assign tags = page.tags %} {% if tags != "" %}
-                <div class="post-misc-meta-tags">
-                    {% for tag in tags %}<span
-                        ><i class="fas fa-tag"></i> {{ tag | strip }}</span
-                    >
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </div>
+                <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+            </article>
         </div>
-    </header>
-    <article
-        class="container-post {% if page.poster %} container-post-with-header {% endif %}"
-    >
-        <div class="post-content" itemprop="articleBody">{{ content }}</div>
 
-        {%- if site.disqus.shortname -%} {%- include disqus_comments.html -%}
-        {%- endif -%}
-
-        <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-    </article>
+        <!-- Footer -->
+        {% include footer.html %}
+    </div>
 </div>
