@@ -2,8 +2,20 @@
 layout: default
 ---
 
-{{ content }}
+<!-- {{ content }} -->
 
 <div class="container">
-    This is home.
+    <div class="container-inner">
+        <!-- Header -->
+        {% include header.html %}
+
+        <div class="container-inner-body" style="justify-content: center; align-content: center; align-items: center;">
+            <div class="container-inner-body-logo">
+                Prashant Shrestha
+            </div>
+        </div>
+
+        <!-- Footer -->
+        {% include footer.html %}
+    </div>
 </div>
