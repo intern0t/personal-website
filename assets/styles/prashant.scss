@@ -1484,7 +1484,8 @@ body {
 		@include BorderRadius(4px);
 		text-decoration: none;
 		color: $primaryForeground;
-		@include Box-Shadow(0 0 10px 5px rgba($Black, 0.6));
+        @include Box-Shadow(0 0 10px 5px rgba($Black, 0.6));
+        display: none;
 	}
 
 	// Animations
