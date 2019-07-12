@@ -263,6 +263,8 @@ body {
 
 					.container-blog-header {
 						margin: 50px 0 0;
+						@include Flex(column);
+						justify-content: flex-start;
 
 						h1 {
 							font-weight: bold;
@@ -369,6 +371,8 @@ body {
 						padding: $defaultFontSize;
 
 						.post-content {
+							width: 700px;
+
 							code {
 								text-transform: none;
 								@include BorderRadius(3px);
@@ -379,7 +383,7 @@ body {
 								font-weight: normal;
 								letter-spacing: 0.2px;
 								font-family: $codeFont;
-								color: rgba($primaryForeground, 0.9);
+								color: rgba($primaryIndexed, 1);
 							}
 
 							p {
@@ -387,12 +391,22 @@ body {
 								font-size: $defaultFontSize;
 								line-height: $defaultFontSize + 12;
 
-								a[data-rel="lightcase"] {
-									img {
-										max-width: 100%;
-										align-self: center;
-									}
-								}
+								// a[data-rel="lightcase"] {
+								// 	border: 0;
+								// 	border-bottom: 2px transparent;
+								// 	// @include Flex(row);
+								// 	// flex-wrap: wrap;
+
+								// 	&:hover {
+								// 		border-bottom: 2px transparent;
+								// 	}
+
+								// 	img {
+								// 		max-width: 100%;
+								// 		align-self: center;
+								// 		margin: 0 auto;
+								// 	}
+								// }
 
 								a,
 								a:visited {
@@ -410,6 +424,18 @@ body {
 										border-bottom: 2px solid
 											rgba($colorLightPowderedBlue, 0.5);
 									}
+								}
+							}
+
+							a[data-rel="lightcase"] {
+								position: relative;
+
+								img[data-src*=".png"],
+								img[data-src*=".jpg"],
+								img[data-src*=".jpeg"],
+								img[data-src*=".gif"] {
+									max-width: 100%;
+									margin: 0 auto;
 								}
 							}
 
@@ -465,6 +491,7 @@ body {
 
 							figure {
 								padding: $defaultFontSize + 2;
+								margin: ($defaultFontSize + 2) 0;
 								overflow: auto;
 
 								pre {
@@ -1475,8 +1502,8 @@ body {
 		bottom: $bestNumber;
 		right: $bestNumber;
 		padding: 10px $bestNumber - 10px;
-        // background: $colorLightPowderedBlue;
-        border: 1px solid $primaryForeground;
+		// background: $colorLightPowderedBlue;
+		border: 1px solid $primaryForeground;
 		font-size: $defaultFontSize * 2.5;
 		text-transform: uppercase;
 		z-index: 99;
@@ -1484,8 +1511,8 @@ body {
 		@include BorderRadius(4px);
 		text-decoration: none;
 		color: $primaryForeground;
-        @include Box-Shadow(0 0 10px 5px rgba($Black, 0.6));
-        display: none;
+		@include Box-Shadow(0 0 10px 5px rgba($Black, 0.6));
+		display: none;
 	}
 
 	// Animations

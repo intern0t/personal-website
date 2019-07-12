@@ -17,17 +17,16 @@ layout: default
                     <h1 class="post-title" itemprop="name headline">
                         <i class="far fa-file-alt"></i> <span>{{ page.title | escape }}</span>
                     </h1>
-                    <!-- Post Date -->
-                    <p class="post-meta">
-                        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}"
-                            itemprop="datePublished">
-                            {%- assign date_format = site.minima.date_format | default:
-                            "%b %-d, %Y" -%} {{ page.date | date: date_format }}
-                        </time>
-                    </p>
                     <!-- Categories and Tags -->
                     <div class="post-misc-meta">
-                        <!-- <h1><i class="fas fa-book"></i> Blog</h1> -->
+                        <!-- Tags -->
+                        {% assign tags = page.tags %} {% if tags != "" %}
+                        <div class="post-misc-meta-tags">
+                            {% for tag in tags %}<span><i class="fas fa-tag"></i> {{ tag | strip }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <!-- Categories 
                         {% assign categories = page.categories %} {% if categories != ""
                         %}
                         <div class="post-misc-meta-categories">
@@ -36,13 +35,16 @@ layout: default
                                 {{ category | strip }}</span>
                             {% endfor %}
                         </div>
-                        {% endif %} {% assign tags = page.tags %} {% if tags != "" %}
-                        <div class="post-misc-meta-tags">
-                            {% for tag in tags %}<span><i class="fas fa-tag"></i> {{ tag | strip }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
+                        {% endif %}-->
                     </div>
+                    <!-- Post Date -->
+                    <p class="post-meta">
+                        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}"
+                            itemprop="datePublished">
+                            {%- assign date_format = site.minima.date_format | default:
+                            "%b %-d, %Y" -%} {{ page.date | date: date_format }}
+                        </time>
+                    </p>
                 </div>
             </header>
             <article class="container-inner-body-post {% if page.poster %} container-post-with-header {% endif %}">
