@@ -296,7 +296,7 @@ body {
 							}
 
 							.post-meta {
-								margin: $defaultFontSize 0;
+								// margin: $defaultFontSize 0;
 
 								time {
 									font-size: $defaultFontSize - 3;
@@ -313,7 +313,7 @@ body {
 								align-items: center;
 
 								&-categories {
-									margin: 20px 0;
+									// margin: 20px 0;
 
 									span {
 										i {
@@ -336,7 +336,7 @@ body {
 									justify-content: flex-start;
 									align-content: center;
 									align-items: center;
-									margin: 20px 0;
+									// margin: 20px 0;
 									flex-wrap: wrap;
 
 									span {
@@ -391,23 +391,6 @@ body {
 								font-size: $defaultFontSize;
 								line-height: $defaultFontSize + 12;
 
-								// a[data-rel="lightcase"] {
-								// 	border: 0;
-								// 	border-bottom: 2px transparent;
-								// 	// @include Flex(row);
-								// 	// flex-wrap: wrap;
-
-								// 	&:hover {
-								// 		border-bottom: 2px transparent;
-								// 	}
-
-								// 	img {
-								// 		max-width: 100%;
-								// 		align-self: center;
-								// 		margin: 0 auto;
-								// 	}
-								// }
-
 								a,
 								a:visited {
 									display: unset;
@@ -428,14 +411,20 @@ body {
 							}
 
 							a[data-rel="lightcase"] {
-								position: relative;
+								&:first-child:not(img) {
+									& {
+										margin: 20px 0;
+										@include Flex(row);
+										justify-content: center;
+										align-content: center;
+										align-content: center;
+										border: 0;
 
-								img[data-src*=".png"],
-								img[data-src*=".jpg"],
-								img[data-src*=".jpeg"],
-								img[data-src*=".gif"] {
-									max-width: 100%;
-									margin: 0 auto;
+										img {
+											max-width: 100%;
+											align-self: center;
+										}
+									}
 								}
 							}
 
@@ -531,6 +520,23 @@ body {
 									padding: 0 10px;
 									font-family: $codeFont;
 									font-size: $defaultFontSize - 3;
+								}
+
+								ol,
+								ul {
+									margin-bottom: 20px;
+
+									li {
+										color: rgba($primaryBackground, 0.6);
+										font-size: $defaultFontSize - 3;
+										font-family: $codeFont;
+									}
+
+									li > a,
+									a:visited {
+										font-size: $defaultFontSize - 3;
+										font-family: $codeFont;
+									}
 								}
 							}
 
