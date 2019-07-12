@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 {% include head.html %}
+
 <body>
     <!-- Top anchor -->
     <div id="top"></div>
 
     <div class="main-wrapper" aria-label="Content">
-        <!-- Import Sidebar -->
-        <!-- {% include sidebar.html %} -->
-
         {{ content }}
-
         <!-- Scroll to TOP!
         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <!-- <a class="toTop" href="#top" title="Scroll to Top!">
-            <i class="fas fa-angle-up"></i> <span>Top</span>
-        </a> -->
+        <a class="toTop" href="#top" title="Scroll to Top!">
+            <i class="fas fa-chevron-up"></i>
+        </a>
     </div>
     <!-- Include all scripts. -->
     {% include scripts.html %}
 </body>
+
 </html>

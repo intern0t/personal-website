@@ -56,6 +56,7 @@ permalink: /library/
     8. [Scrimba](https://scrimba.com)
     9. [The Road to learn React: Your journey to master plain yet pragmatic React.js](https://www.amazon.com/gp/product/1986338827/) by [Robin Wieruch](https://www.amazon.com/Robin-Wieruch/e/B07BBS273X/ref=dp_byline_cont_ebooks_1) <span class="fas fa-book" title="Completed, Summer & Fall 2018"></span>
     10. [Taming the State in React: Your journey to master Redux and MobX](https://www.amazon.com/dp/B07CYKDQ5S) by [Robin Wieruch](https://www.amazon.com/Robin-Wieruch/e/B07BBS273X/ref=dp_byline_cont_ebooks_1) <span class="fas fa-book" title="Completed, Fall 2018 - Spring 2019 (Jan 15)"></span>
+    11. [The Road to GraphQL](https://leanpub.com/the-road-to-graphql) by Robin Wieruch. <span class="fas fa-book" title="Completed, Jun-Jul Summer 2019"></span>
 -   Desktop Application Development
     1. [Awesome Electron](https://github.com/sindresorhus/awesome-electron) by [@sindresorhus](https://github.com/sindresorhus/)
     2. [Starting Out with C++ from Control Structures to Objects](https://www.amazon.com/Starting-Out-Control-Structures-Objects/dp/0134498372) by [Tony Gaddis](https://media.pearsoncmg.com/bc/abp/cs-resources/products/series.html#series,series=Gaddis)
@@ -65,6 +66,8 @@ permalink: /library/
 
 -   Mathematics
     1. [Applied Statistics and Probability for Engineers 6E.](https://www.amazon.com/Applied-Statistics-Probability-Engineers-Montgomery/dp/1118539710) by Montgomery & Runger <span class="fas fa-book" title="Completed, Jan-May (STAT 344) Spring 2018"></span>
+-   Computer Science
+    1. [Data Structures & Problem Solving Using Java - 4th Edition](https://www.amazon.com/Data-Structures-Problem-Solving-Using-dp-0321541405/dp/0321541405/ref=mt_paperback?_encoding=UTF8&me=&qid=) by Mark Allen Weiss. <span class="fas fa-book" title="Completed, May-Jun Summer 2019"></span>
 
 ###### <span class="fas fa-layer-group"></span> **Competitive Programming**
 

@@ -394,8 +394,22 @@ body {
 									}
 								}
 
-								a {
+								a,
+								a:visited {
 									display: unset;
+									color: $colorLightPowderedBlue;
+									text-decoration: none;
+									border-bottom: 2px solid transparent;
+									@include Transition(
+										border-bottom,
+										0.3s,
+										ease-in-out
+									);
+
+									&:hover {
+										border-bottom: 2px solid
+											rgba($colorLightPowderedBlue, 0.5);
+									}
 								}
 							}
 
@@ -411,6 +425,8 @@ body {
 								margin: 15px 0;
 								padding: $defaultFontSize 0;
 								font-weight: bold;
+
+								@include Link;
 							}
 
 							ul {
@@ -423,11 +439,23 @@ body {
 
 							ul,
 							ol {
-								padding: 0 20px;
+								padding: 0 30px;
+								margin-left: 20px;
 
 								li {
 									font-size: $defaultFontSize;
 									line-height: $defaultFontSize + 12;
+									@include Link;
+
+									&::before {
+										content: "";
+										color: $colorGray;
+									}
+
+									span {
+										font-size: $defaultFontSize - 3;
+										color: $colorGray;
+									}
 								}
 							}
 
@@ -485,6 +513,7 @@ body {
 						}
 					}
 				}
+
 				&-footer {
 					@include Flex(row);
 					justify-content: space-between;
@@ -801,219 +830,219 @@ body {
 				margin-top: 0;
 			}
 
-			&-post {
-				@include Flex(column);
-				// padding: 20px;
+			// &-post {
+			// 	@include Flex(column);
+			// 	// padding: 20px;
 
-				.post-content {
-					color: $colorGray;
-					font-size: $defaultFontSize + 1;
-					padding: $defaultFontSize + 2;
+			// 	.post-content {
+			// 		color: $colorGray;
+			// 		font-size: $defaultFontSize + 1;
+			// 		padding: $defaultFontSize + 2;
 
-					hr {
-						margin: 40px 0;
-					}
+			// 		hr {
+			// 			margin: 40px 0;
+			// 		}
 
-					h1,
-					h2,
-					h3,
-					h4,
-					h5,
-					h6 {
-						text-transform: capitalize;
-						letter-spacing: 0.5px;
-						color: $primaryForeground;
-						margin: 15px 0;
-						padding: $defaultFontSize 0;
-						font-weight: bold;
+			// 		h1,
+			// 		h2,
+			// 		h3,
+			// 		h4,
+			// 		h5,
+			// 		h6 {
+			// 			text-transform: capitalize;
+			// 			letter-spacing: 0.5px;
+			// 			color: $primaryForeground;
+			// 			margin: 15px 0;
+			// 			padding: $defaultFontSize 0;
+			// 			font-weight: bold;
 
-						a,
-						a:visited {
-							color: $colorLightPowderedBlue;
-							text-decoration: none;
-							border-bottom: 2px solid transparent;
-							@include Transition(
-								border-bottom,
-								0.3s,
-								ease-in-out
-							);
+			// 			a,
+			// 			a:visited {
+			// 				color: $colorLightPowderedBlue;
+			// 				text-decoration: none;
+			// 				border-bottom: 2px solid transparent;
+			// 				@include Transition(
+			// 					border-bottom,
+			// 					0.3s,
+			// 					ease-in-out
+			// 				);
 
-							&:hover {
-								border-bottom: 2px solid
-									rgba($colorLightPowderedBlue, 0.8);
-							}
-						}
+			// 				&:hover {
+			// 					border-bottom: 2px solid
+			// 						rgba($colorLightPowderedBlue, 0.8);
+			// 				}
+			// 			}
 
-						strong {
-							margin: 0 10px;
-						}
-					}
-					h1 {
-						font-size: $defaultFontSize + 6;
-					}
-					h2 {
-						font-size: $defaultFontSize + 5;
-					}
-					h3 {
-						font-size: $defaultFontSize + 4;
-					}
-					h4 {
-						font-size: $defaultFontSize + 3;
-					}
-					h5 {
-						font-size: $defaultFontSize + 2;
-					}
-					h6 {
-						font-size: $defaultFontSize + 1;
-					}
+			// 			strong {
+			// 				margin: 0 10px;
+			// 			}
+			// 		}
+			// 		h1 {
+			// 			font-size: $defaultFontSize + 6;
+			// 		}
+			// 		h2 {
+			// 			font-size: $defaultFontSize + 5;
+			// 		}
+			// 		h3 {
+			// 			font-size: $defaultFontSize + 4;
+			// 		}
+			// 		h4 {
+			// 			font-size: $defaultFontSize + 3;
+			// 		}
+			// 		h5 {
+			// 			font-size: $defaultFontSize + 2;
+			// 		}
+			// 		h6 {
+			// 			font-size: $defaultFontSize + 1;
+			// 		}
 
-					blockquote {
-						padding: 10px 20px;
-						margin: ($defaultFontSize * 2) 0 ($defaultFontSize * 2)
-							0;
-						border-left: 7px solid $colorDarkCrimson;
-						position: relative;
-						background-color: #272822;
+			// 		blockquote {
+			// 			padding: 10px 20px;
+			// 			margin: ($defaultFontSize * 2) 0 ($defaultFontSize * 2)
+			// 				0;
+			// 			border-left: 7px solid $colorDarkCrimson;
+			// 			position: relative;
+			// 			background-color: #272822;
 
-						&::before {
-							font-family: FontAwesome;
-							content: "\f10d";
-							font-size: $defaultFontSize * 2.5;
-							position: absolute;
-							top: 10px;
-							left: 15px;
-							opacity: 0.3;
-						}
+			// 			&::before {
+			// 				font-family: FontAwesome;
+			// 				content: "\f10d";
+			// 				font-size: $defaultFontSize * 2.5;
+			// 				position: absolute;
+			// 				top: 10px;
+			// 				left: 15px;
+			// 				opacity: 0.3;
+			// 			}
 
-						p {
-							color: rgba($primaryBackground, 0.5);
+			// 			p {
+			// 				color: rgba($primaryBackground, 0.5);
 
-							a,
-							a:visited {
-								color: $colorLightPowderedBlue;
-							}
-						}
-					}
+			// 				a,
+			// 				a:visited {
+			// 					color: $colorLightPowderedBlue;
+			// 				}
+			// 			}
+			// 		}
 
-					p > a {
-						& > img {
-							max-width: 100%;
-							display: block;
-							margin: 0 auto;
-							clear: both;
-							margin-top: 20px;
-							margin-bottom: 20px;
-						}
+			// 		p > a {
+			// 			& > img {
+			// 				max-width: 100%;
+			// 				display: block;
+			// 				margin: 0 auto;
+			// 				clear: both;
+			// 				margin-top: 20px;
+			// 				margin-bottom: 20px;
+			// 			}
 
-						.fleft {
-							float: left;
-						}
-						.fright {
-							float: right;
-						}
-						.fcenter {
-							float: center;
-						}
-					}
+			// 			.fleft {
+			// 				float: left;
+			// 			}
+			// 			.fright {
+			// 				float: right;
+			// 			}
+			// 			.fcenter {
+			// 				float: center;
+			// 			}
+			// 		}
 
-					p {
-						@include Font($defaultFontFamily);
-						font-size: $defaultFontSize + 1;
-						line-height: $defaultFontSize * 1.7;
-						letter-spacing: 0.5px;
-						margin: 10px 0;
-						color: $colorGray;
+			// 		p {
+			// 			@include Font($defaultFontFamily);
+			// 			font-size: $defaultFontSize + 1;
+			// 			line-height: $defaultFontSize * 1.7;
+			// 			letter-spacing: 0.5px;
+			// 			margin: 10px 0;
+			// 			color: $colorGray;
 
-						a,
-						a:visited {
-							color: $colorLightPowderedBlue;
-							text-decoration: none;
-							border-bottom: 2px solid transparent;
-							@include Transition(
-								border-bottom,
-								0.3s,
-								ease-in-out
-							);
+			// 			a,
+			// 			a:visited {
+			// 				color: $colorLightPowderedBlue;
+			// 				text-decoration: none;
+			// 				border-bottom: 2px solid transparent;
+			// 				@include Transition(
+			// 					border-bottom,
+			// 					0.3s,
+			// 					ease-in-out
+			// 				);
 
-							img {
-								max-width: 100%;
-								overflow: hidden;
-							}
+			// 				img {
+			// 					max-width: 100%;
+			// 					overflow: hidden;
+			// 				}
 
-							&:hover {
-								border-bottom: 2px solid
-									rgba($colorLightPowderedBlue, 0.5);
-							}
-						}
+			// 				&:hover {
+			// 					border-bottom: 2px solid
+			// 						rgba($colorLightPowderedBlue, 0.5);
+			// 				}
+			// 			}
 
-						code {
-							@include Font($defaultCodeFontFamily);
-							background: rgba($colorDarkCrimson, 0.3);
-							color: $primaryForeground;
-							padding: 3px 5px;
-							font-size: $defaultFontSize;
-							@include BorderRadius(2px, all);
-						}
-					}
+			// 			code {
+			// 				@include Font($defaultCodeFontFamily);
+			// 				background: rgba($colorDarkCrimson, 0.3);
+			// 				color: $primaryForeground;
+			// 				padding: 3px 5px;
+			// 				font-size: $defaultFontSize;
+			// 				@include BorderRadius(2px, all);
+			// 			}
+			// 		}
 
-					.highlight {
-						margin: 20px 0;
-						background: #272822;
-						@include Font($defaultCodeFontFamily);
-						line-height: $defaultFontSize + 5;
+			// 		.highlight {
+			// 			margin: 20px 0;
+			// 			background: #272822;
+			// 			@include Font($defaultCodeFontFamily);
+			// 			line-height: $defaultFontSize + 5;
 
-						pre {
-							padding: 20px;
-							position: relative;
-							overflow: auto;
-						}
-					}
+			// 			pre {
+			// 				padding: 20px;
+			// 				position: relative;
+			// 				overflow: auto;
+			// 			}
+			// 		}
 
-					ol {
-						list-style-type: decimal;
-						padding: 10px;
+			// 		ol {
+			// 			list-style-type: decimal;
+			// 			padding: 10px;
 
-						li {
-							@include Font($defaultFontFamily);
-							font-size: $defaultFontSize + 1;
-							line-height: $defaultFontSize * 1.8;
-							margin: 10px 40px;
+			// 			li {
+			// 				@include Font($defaultFontFamily);
+			// 				font-size: $defaultFontSize + 1;
+			// 				line-height: $defaultFontSize * 1.8;
+			// 				margin: 10px 40px;
 
-							a,
-							a:visited {
-								color: $colorLightPowderedBlue;
-								text-decoration: none;
-								border-bottom: 2px solid transparent;
-								@include Transition(
-									border-bottom,
-									0.3s,
-									ease-in-out
-								);
+			// 				a,
+			// 				a:visited {
+			// 					color: $colorLightPowderedBlue;
+			// 					text-decoration: none;
+			// 					border-bottom: 2px solid transparent;
+			// 					@include Transition(
+			// 						border-bottom,
+			// 						0.3s,
+			// 						ease-in-out
+			// 					);
 
-								&:hover {
-									border-bottom: 2px solid
-										rgba($colorLightPowderedBlue, 0.8);
-								}
-							}
+			// 					&:hover {
+			// 						border-bottom: 2px solid
+			// 							rgba($colorLightPowderedBlue, 0.8);
+			// 					}
+			// 				}
 
-							code {
-								@include Font($defaultCodeFontFamily);
-								background: rgba($colorDarkCrimson, 0.3);
-								color: $primaryForeground;
-								padding: 3px 5px;
-								font-size: $defaultFontSize;
-								@include BorderRadius(2px, all);
-							}
-						}
-					}
+			// 				code {
+			// 					@include Font($defaultCodeFontFamily);
+			// 					background: rgba($colorDarkCrimson, 0.3);
+			// 					color: $primaryForeground;
+			// 					padding: 3px 5px;
+			// 					font-size: $defaultFontSize;
+			// 					@include BorderRadius(2px, all);
+			// 				}
+			// 			}
+			// 		}
 
-					ul {
-						list-style-type: square;
-						padding: 0 20px;
-						margin: 0 20px;
-					}
-				}
-			}
+			// 		ul {
+			// 			list-style-type: square;
+			// 			padding: 0 20px;
+			// 			margin: 0 20px;
+			// 		}
+			// 	}
+			// }
 
 			&-project {
 				@include Flex(row);
@@ -1437,35 +1466,25 @@ body {
 				}
 			}
 		}
+	}
 
-		.toTop {
-			position: fixed;
-			bottom: 0;
-			right: 25px;
-			background: $colorLightPowderedBlue;
-			font-size: 11px;
-			text-transform: uppercase;
-			z-index: 99;
-			@include Flex(row);
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
-			display: none;
-			text-decoration: none;
+	.toTop {
+		$bestNumber: 25px;
 
-			i[class^="fa"] {
-				background: #1f3341;
-				color: $primaryForeground;
-				padding: 8px 10px;
-				border-top-left-radius: 3px;
-			}
-
-			span {
-				@include Font($defaultFontFamily);
-				color: $primaryForeground;
-				padding: 8px 15px;
-				border-top-right-radius: 3px;
-			}
-		}
+		position: fixed;
+		bottom: $bestNumber;
+		right: $bestNumber;
+		padding: 10px $bestNumber - 10px;
+        // background: $colorLightPowderedBlue;
+        border: 1px solid $primaryForeground;
+		font-size: $defaultFontSize * 2.5;
+		text-transform: uppercase;
+		z-index: 99;
+		@include Flex(row);
+		@include BorderRadius(4px);
+		text-decoration: none;
+		color: $primaryForeground;
+		@include Box-Shadow(0 0 10px 5px rgba($Black, 0.6));
 	}
 
 	// Animations

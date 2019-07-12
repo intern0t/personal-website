@@ -6,55 +6,71 @@
  */
 
 @mixin Smoothing {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    -webkit-font-feature-settings: "pnum";
-    font-feature-settings: "pnum";
-    font-variant-numeric: proportional-nums;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	-webkit-font-feature-settings: "pnum";
+	font-feature-settings: "pnum";
+	font-variant-numeric: proportional-nums;
 }
 
 @mixin Font($fontFamily) {
-    font-family: $fontFamily;
-    @include Smoothing;
+	font-family: $fontFamily;
+	@include Smoothing;
 }
 
 @mixin Flex($dir) {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: $dir;
-    flex-direction: $dir;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: $dir;
+	flex-direction: $dir;
 }
 
 @mixin BorderRadius($radii, $whichSides: all) {
-    @if $whichSides == "all" {
-        border-radius: $radii;
-    } @else if $whichSides == "left" {
-        border-top-left-radius: $radii;
-        border-bottom-left-radius: $radii;
-    } @else if $whichSides == "right" {
-        border-top-right-radius: $radii;
-        border-bottom-right-radius: $radii;
-    } @else if $whichSides == "top" {
-        border-top-left-radius: $radii;
-        border-top-right-radius: $radii;
-    }
+	@if $whichSides == "all" {
+		border-radius: $radii;
+	} @else if $whichSides == "left" {
+		border-top-left-radius: $radii;
+		border-bottom-left-radius: $radii;
+	} @else if $whichSides == "right" {
+		border-top-right-radius: $radii;
+		border-bottom-right-radius: $radii;
+	} @else if $whichSides == "top" {
+		border-top-left-radius: $radii;
+		border-top-right-radius: $radii;
+	}
 }
 
 @mixin Box-Shadow($content...) {
-    -webkit-box-shadow: $content;
-    box-shadow: $content;
+	-webkit-box-shadow: $content;
+	box-shadow: $content;
 }
 
 @mixin Transform($deg) {
-    -webkit-transform: rotate($deg);
-    transform: rotate($deg);
+	-webkit-transform: rotate($deg);
+	transform: rotate($deg);
 }
 
 @mixin Transition($type, $delay, $transitionType) {
-    -webkit-transition: $type $delay $transitionType;
-    transition: $type $delay $transitionType;
+	-webkit-transition: $type $delay $transitionType;
+	transition: $type $delay $transitionType;
+}
+
+@mixin Link() {
+	a,
+	a:visited {
+		display: unset;
+        color: $colorLightPowderedBlue;
+        font-family: $Yorkten;
+		text-decoration: none;
+		border-bottom: 2px solid transparent;
+		@include Transition(border-bottom, 0.3s, ease-in-out);
+
+		&:hover {
+			border-bottom: 2px solid rgba($colorLightPowderedBlue, 0.5);
+		}
+	}
 }
