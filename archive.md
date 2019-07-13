@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Archive
-permalink: /archive/
+title: Blog
+permalink: /blog/
 ---
 
 <div class="container-blog-header">
     <h1><i class="fas fa-archive"></i>
-    <span>Archive ({{ site.posts | size }})</span>
+    <span>Blog ({{ site.posts | size }})</span>
     </h1>
 </div>
 
