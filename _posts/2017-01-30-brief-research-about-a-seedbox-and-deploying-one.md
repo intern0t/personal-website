@@ -40,18 +40,18 @@ I wish to let my readers know that there are plenty of services out there which 
 
 #### Pros and Cons of buying a Seedbox
 
-###### Buying a Seedbox service -- Pros
+#### Buying a Seedbox service -- Pros
 
 1. Security, responsibility and hard works are all taken care of, for a price.
 1. Amazing network, pooled or dedicated, the speed is amazing.
 1. You show your contribution towards the file sharing, hopefully legally.
 1. You won't be wasting your home bandwidth. Mine's 250GB per month, my custom Seedbox has unmetered bandwidth (imagine the fun!)
 
-###### Buying a Seedbox service -- Cons
+#### Buying a Seedbox service -- Cons
 
 1. I could see only **one** disadvantage of buying a Seedbox service, the expense. Good Seedbox price ranges from $5-7, Better Seedbox ranges from $10-$15, Awesome ones needs more investment.
 
-###### Creating your custom Seedbox -- Pros
+#### Creating your custom Seedbox -- Pros
 
 1. Knowledge and understanding of Peer-2-Peer transfer protocols.
 2. The network and hardware performance depends on the kind of Seedbox you build and the existing service you have or have been provided with.
@@ -59,7 +59,7 @@ I wish to let my readers know that there are plenty of services out there which 
 1. Easily transferable to different systems by taking a snapshot of your system with 0 torrents and complete setup.
 1. You can use VPN (Virtual Private Network) on your custom Seedbox to stay out of radar and sometimes increase your Seedbox's performance.
 
-###### Creating your custom Seedbox service -- Cons
+#### Creating your custom Seedbox service -- Cons
 
 1. Probably the biggest disadvantage of setting up your custom Seedbox is the amount of work you put into it while setting it up.
 2. Economy? Not so much but does require maintenance and some post-setup problems.

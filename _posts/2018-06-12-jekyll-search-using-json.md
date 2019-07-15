@@ -20,7 +20,7 @@ The simple way I chose to follow was a little too simple and lacks features for 
 
 First, let me list[^1] some of Jekyll's liquid template syntaxes that I used for this task.
 
-##### Jekyll Syntaxes
+#### Jekyll Syntaxes
 
 1. `site.posts` - We will use it initialize and loop through all our posts.
 2. `post.title` - To access our post's title.
@@ -107,7 +107,7 @@ The outcome I decided to settle with, I am pretty satisfied with it.
 
 ***
 
-##### Updated
+#### Updated
 
 I wanted to search not only blog post's title, tags or categories but a bit of an excerpt from the blog post as well and this is what I came up with. The most significant constraint on searching the post content is the performance, having to search big post contents and not only that, the amount of blog posts creates even bigger performance issues. I didn't quite overcome this problem yet and have to rethink this approach.
 

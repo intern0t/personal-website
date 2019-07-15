@@ -52,7 +52,6 @@ body {
 			height: 100%;
 			background: $Black;
 			color: $primaryForeground;
-			// @include Box-Shadow(0 0 1px 1px rgba($Black, 0.6));
 			@include Flex(column);
 			justify-content: space-between;
 
@@ -150,7 +149,6 @@ body {
 			overflow: auto;
 			background: $primaryBackground;
 			@include Flex(column);
-			// padding: 60px;
 			min-height: 100vh;
 
 			&-inner {
@@ -169,7 +167,7 @@ body {
 					flex-wrap: wrap;
 
 					&-logo {
-						font-family: $Serenade;
+						@include Font($Serenade);
 						font-size: 60px;
 						align-self: center;
 						text-decoration: none;
@@ -187,7 +185,7 @@ body {
 						a,
 						a:visited {
 							letter-spacing: 1px;
-							font-family: $Yorkten;
+							@include Font($Yorkten);
 							font-size: 18px;
 							font-weight: bold;
 							position: relative;
@@ -260,7 +258,7 @@ body {
 					font-size: 20px;
 
 					&-logo {
-						font-family: $Serenade;
+						@include Font($Serenade);
 						@include breakpoint(xs) {
 							font-size: 75px;
 						}
@@ -394,7 +392,7 @@ body {
 								line-height: $defaultFontSize - 2;
 								font-weight: normal;
 								letter-spacing: 0.2px;
-								font-family: $codeFont;
+								@include Font($codeFont);
 								color: rgba($primaryIndexed, 1);
 							}
 
@@ -528,7 +526,7 @@ body {
 										margin: unset;
 										font-size: $defaultFontSize - 3;
 										line-height: $defaultFontSize + 3;
-										font-family: $codeFont;
+										@include Font($codeFont);
 									}
 								}
 							}
@@ -555,7 +553,7 @@ body {
 								p {
 									color: rgba($primaryBackground, 0.6);
 									padding: 0 10px;
-									font-family: $codeFont;
+									@include Font($codeFont);
 									font-size: $defaultFontSize - 3;
 								}
 
@@ -566,13 +564,13 @@ body {
 									li {
 										color: rgba($primaryBackground, 0.6);
 										font-size: $defaultFontSize - 3;
-										font-family: $codeFont;
+										@include Font($codeFont);
 									}
 
 									li > a,
 									a:visited {
 										font-size: $defaultFontSize - 3;
-										font-family: $codeFont;
+										@include Font($codeFont);
 									}
 								}
 							}
@@ -1577,7 +1575,6 @@ body {
 		bottom: $bestNumber;
 		right: $bestNumber;
 		padding: 10px $bestNumber - 10px;
-		// background: $colorLightPowderedBlue;
 		border: 1px solid $primaryForeground;
 		font-size: $defaultFontSize * 2.5;
 		text-transform: uppercase;

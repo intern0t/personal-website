@@ -134,4 +134,4 @@ It uses 256 bits and `cbc` encryption by default which you can change if you pre
 
 Enjoy.
 
-###### Credits: Blog Image - [d.ibtimes](https://d.ibtimes.co.uk/en/full/1508674/encryption.jpg).
+#### Credits: Blog Image - [d.ibtimes](https://d.ibtimes.co.uk/en/full/1508674/encryption.jpg).

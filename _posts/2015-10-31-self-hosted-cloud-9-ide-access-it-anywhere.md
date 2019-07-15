@@ -31,7 +31,7 @@ Yes, there are many online cloud IDE which provide you with a free workspace wit
 
 I listed one of the popular ones that the Google considers and the ones that I've tried and liked. If you are planning on using cloud IDE for educational purposes then I would say, self-hosted Cloud IDE is cheaper.
 
-##### Some Pros and Cons
+#### Some Pros and Cons
 
 **Pros -**
 
@@ -46,7 +46,7 @@ I listed one of the popular ones that the Google considers and the ones that I'v
 
 I therefore decided to use Cloud9 IDE (Open Source) as my private IDE in CentOS 6.
 
-##### Preparing for the Cloud9 Installation.
+#### Preparing for the Cloud9 Installation.
 
 * wget 
 {% highlight bash %}
@@ -104,7 +104,7 @@ cd ~
 git clone git://github.com/c9/core.git c9sdk
 {% endhighlight %}
 
-##### Installation should be simple & easy as.
+#### Installation should be simple & easy as.
 
 {% highlight bash %}
 cd c9sdk && scripts/install-sdk.sh
@@ -152,7 +152,7 @@ I did not bother configuring the reverse proxy port with my domain or a subdomai
 --no-cache       Don't use the cached version of CSS
 {% endhighlight %}
 
-##### Thing I learned -
+#### Thing I learned -
 
 If you ran the server regularly with no special parameters, I suggest you to create a directory inside `./core` with the name `Workspaces` and launch the server again with the following command to have a better and clean directory to work in.
 
