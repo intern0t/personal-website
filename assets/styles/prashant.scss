@@ -253,7 +253,9 @@ body {
 				&-body {
 					flex: 1;
 					max-width: 700px;
-					margin: 0 auto 2em;
+					@include breakpoint(sm) {
+						margin: 0 auto 2em;
+					}
 					@include Flex(column);
 					font-size: 20px;
 
