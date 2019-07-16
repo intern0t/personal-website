@@ -157,6 +157,6 @@ This should do the trick, in order to check if it is working or not, just head o
 
 The scripts have been added to my [Github](https://github.com/intern0t/Image-Hosting) repository therefore feel free to improve and upgrade.
 
-###### Credits to [MemoryPointer](http://memorypointer.com/wp-content/uploads/2014/04/best-hosting-providers.jpg) for the server rack image.
+#### Credits to [MemoryPointer](http://memorypointer.com/wp-content/uploads/2014/04/best-hosting-providers.jpg) for the server rack image.
 
 Happy Coding!

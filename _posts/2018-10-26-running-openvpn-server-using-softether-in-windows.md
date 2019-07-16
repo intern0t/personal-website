@@ -15,11 +15,11 @@ The headache, I am referring to is specifically the [NAT](https://en.wikipedia.o
 
 After a bit of searching, I came across [SoftEther](https://www.softether.org/) which is not a VPN solution per say but more of a compilation of multi-protocol VPN software that allows you to configure and run the VPN server of your choice and availability. Best thing about SoftEther is that it is completely free!
 
-##### SoftEther Installation
+#### SoftEther Installation
 
 Installation of SoftEther is probably the easiest process, especially in Windows platform, you can simply download and install [**SoftEther VPN Server**](https://www.softether.org/5-download) or go directly to the download [page](https://www.softether-download.com/en.aspx?product=softether). Simply select the platform and runtime environment. Download and install, process is pretty simple and straight-forward.
 
-##### Setting Up
+#### Setting Up
 
 Setting up SoftEther is pretty simple as well however it gets confusing sometimes.
 
@@ -59,7 +59,7 @@ Setting up SoftEther is pretty simple as well however it gets confusing sometime
 
 * That should be it for the VPN set up part.
 
-##### Configuring Client's `.ovpn` file.
+#### Configuring Client's `.ovpn` file.
 
 1. Extract and open the sample configuration file we generated from `OpenVPN / MS-SSTP Setting` window, there should be **two** files. Ignoring the PC Name from the filename `_openvpn_remote_access_l3.ovpn` and `_openvpn_site_to_site_bridge_l2.ovpn`. We need the first one for the **remote access**.
 
@@ -71,7 +71,7 @@ Setting up SoftEther is pretty simple as well however it gets confusing sometime
 
 5. Once done, edit a field in the configuration file named `auth-user-pass` to `auth-user-pass auth.txt`, rename the file to something simpler, for example `client.ovpn` and download it to your client machine.
 
-##### Creating `auth.txt`
+#### Creating `auth.txt`
 
 In the same directory where your `client.ovpn` resides, create another file `auth.txt` with the username and password you [set up](https://i.imgur.com/pQkMky4.png){:data-rel="lightcase"}. Your `auth.txt` content layout should have username in first line, password on the second, that's all.
 
@@ -80,7 +80,7 @@ username
 password
 {% endhighlight %}
 
-##### Connecting to our OpenVPN Server
+#### Connecting to our OpenVPN Server
 
 Connecting to our OpenVPN server is quite simple, you can use an OpenVPN client to import your `client.ovpn` or if you are a terminal preferring user like myself, a simple command like so can get the job done.
 

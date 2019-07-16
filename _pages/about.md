@@ -12,6 +12,10 @@ permalink: /about/
 
 <div class="container-post">
 <div class="post-content" markdown="1">
-Working on it.
+
+View tools and resources used in this website.
+
+[Attribution](/attributions)
+
 </div>
 </div>

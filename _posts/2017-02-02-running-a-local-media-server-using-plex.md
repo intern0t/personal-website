@@ -44,7 +44,7 @@ I am serving raw contents to my devices which I'll discuss later.
 
 Removed the stock Operating System (Snow Leopard) and installed [Ubuntu Minimal](https://help.ubuntu.com/community/Installation/MinimalCD) instead. This is still an overkill for *my* purposes but what the hell right?
 
-##### Setup
+#### Setup
 
 There's not much to talk about regarding the setup, you go with the Operating System you are familiar with, I like Linux, I went with Ubuntu Minimal to save resources that are normally used for contrasting graphics or GUI (that way I've loads of available RAM & other resources). 
 
