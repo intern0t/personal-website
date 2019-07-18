@@ -8,7 +8,7 @@ tags: javascript json search build file clientside jquery
 poster: https://i.imgur.com/mOtENKW.png
 ---
 
-> Check what was [updated]({% post_url 2018-06-12-jekyll-search-using-json %}#updated). - *Wed Aug  8 20:36:45 EDT 2018*
+> Check what was [updated](#updated). - *Wed Aug  8 20:36:45 EDT 2018*
 
 I remember using and integrating Google Search results in various web projects of mine, including this blog but never did occur to me that using Google Search for Jekyll was pretty painful. It wasn't the feature Google was providing their **free** users; it wasn't the idea behind the implementation but rather the various factors required to implement it correctly. A small mistake in proper configurations could make our end goal turn south.
 

@@ -47,7 +47,9 @@ $(document).ready(() => {
 		$(this)
 			.attr("href")
 			.indexOf("://prashant.me") == -1
-			? $(this).attr("target", "_blank")
+			? $(this).attr("href")[0] == "#"
+				? $(this).attr("target", "")
+				: $(this).attr("target", "_blank")
 			: $(this).attr("target", "");
 	});
 
