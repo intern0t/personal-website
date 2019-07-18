@@ -86,10 +86,10 @@
 		text-decoration: none;
 		margin: 0 30px;
 		padding: 8px 0;
-		color: $colorMineShaft;
+		color: $primaryHeaderColor;
 
 		&:hover {
-			color: $colorMineShaft;
+			color: $primaryHeaderColor;
 
 			&:hover:before {
 				visibility: visible;
@@ -105,7 +105,7 @@
 			height: 4px;
 			bottom: 0;
 			left: 0;
-			background-color: $colorMineShaft;
+			background-color: $primaryHeaderColor;
 			visibility: hidden;
 			-webkit-transform: scaleX(0);
 			transform: scaleX(0);

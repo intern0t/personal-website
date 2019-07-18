@@ -123,6 +123,25 @@ $(document).ready(() => {
 		}
 	});
 
+	// /* Change theme
+    //     –––––––––––––––––––––––––––––––––––––––––––––––––– */
+	// $(".theme-adjust").on("click", function(e) {
+	// 	e.preventDefault();
+	// 	localStorage.setItem("dark", true);
+	// 	window.location.reload();
+	// });
+
+	// /* Load Theme
+    //     –––––––––––––––––––––––––––––––––––––––––––––––––– */
+	// let darkTheme = localStorage.getItem("dark");
+	// const themeBasePath = "/assets/styles/";
+	// if (darkTheme) {
+	// 	$('link[rel="stylesheet"]').attr(
+	// 		"href",
+	// 		themeBasePath + (darkTheme ? "dark.css" : "light.css")
+	// 	);
+	// }
+
 	/* Search handling
         –––––––––––––––––––––––––––––––––––––––––––––––––– */
 	/* Handle keydown */

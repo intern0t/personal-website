@@ -38,6 +38,10 @@ markdown: kramdown
 # theme: minima
 plugins:
     - jekyll-feed
+# Styling
+sass:
+  sass_dir: _sass
+  style: compressed
 
 # Including all pages inside _pages dir.
 include: ["_pages"]
