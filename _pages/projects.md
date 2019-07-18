@@ -11,7 +11,7 @@ permalink: /projects/
 <div class="projects">
     {% for project in site.data.projects %}
     <div class="projects-entry">
-        <h4><i class="fas fa-save"></i> <span>{{ project.title }}</span></h4>
+        <h4><span><i class="fas fa-save"></i> <span>{{ project.title }}</span></span> <strong class="date">{{ project.date }}</strong></h4>
         <div class="projects-entry-tags">
             {% for toolsUsed in project.used %}
                 <span>{{ toolsUsed }}</span>

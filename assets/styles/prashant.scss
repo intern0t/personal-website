@@ -703,6 +703,25 @@ body {
 										border-bottom: 0;
 									}
 
+									h4 {
+										@include Flex(row);
+										justify-content: space-between;
+										align-content: center;
+										align-items: center;
+										flex-wrap: wrap;
+
+										strong {
+											font-weight: normal;
+											color: rgba(
+												$primaryForeground,
+												0.5
+											);
+											font-size: $defaultFontSize - 4;
+											margin-left: $defaultFontSize;
+											text-transform: uppercase;
+										}
+									}
+
 									&-tags {
 										@include Flex(row);
 										justify-content: flex-start;
