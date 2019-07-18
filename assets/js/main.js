@@ -113,11 +113,11 @@ $(document).ready(() => {
 
 	/* Smooth scroll to top button.
         –––––––––––––––––––––––––––––––––––––––––––––––––– */
-	$(".container").scroll(() => {
-		if ($(".container").scrollTop()) {
-			$("a.toTop").fadeIn();
+	$(".main-wrapper").scroll(() => {
+		if ($(".main-wrapper").scrollTop()) {
+			$(".to-top").fadeIn();
 		} else {
-			$("a.toTop").fadeOut();
+			$(".to-top").fadeOut();
 		}
 	});
 
