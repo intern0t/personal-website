@@ -388,6 +388,7 @@ body {
 								justify-content: center;
 								align-content: center;
 								align-items: center;
+								margin-bottom: $defaultFontSize - 3;
 
 								&-categories {
 									span {
@@ -776,6 +777,46 @@ body {
 											}
 										}
 									}
+								}
+							}
+						}
+					}
+
+					&-post-navigation {
+						@include Flex(row);
+						justify-content: space-between;
+						align-content: center;
+						align-items: center;
+						overflow: hidden;
+						width: 100%;
+						margin-top: 25px;
+						border-top: 1px solid $primaryForeground;
+
+						a,
+						a:visited {
+							flex: 1;
+							padding: 20px 0;
+							font-size: $defaultFontSize - 3;
+							text-transform: uppercase;
+							overflow: hidden;
+							text-decoration: none;
+							color: $primaryForeground;
+							letter-spacing: 0.3px;
+
+							&:first-child {
+								text-align: left;
+							}
+							&:nth-child(2) {
+								text-align: right;
+							}
+
+							// For the icon.
+							i {
+								&:first-child {
+									margin-right: 5px;
+								}
+								&:nth-child(1) {
+									margin-left: 5px;
 								}
 							}
 						}
