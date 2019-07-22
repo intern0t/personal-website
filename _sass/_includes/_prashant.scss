@@ -802,6 +802,7 @@ body {
 							text-decoration: none;
 							color: $primaryForeground;
 							letter-spacing: 0.3px;
+							flex-basis: 50%;
 
 							&:first-child {
 								text-align: left;
