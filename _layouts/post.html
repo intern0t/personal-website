@@ -55,6 +55,20 @@ layout: default
 
                 <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
             </article>
+            <hr>
+            <!-- Next and Previous posts. -->
+            <section class="container-inner-body-post-navigation">
+                <!-- Previous Post -->
+                {% if page.previous.url %}
+                <a href="{{ page.previous.url }}" title="{{ page.previous.title }}" style="text-align: left;"><i
+                        class="fas fa-angle-double-left"></i> Previous Post</a>
+                {% endif %}
+                <!-- Next Post -->
+                {% if page.next.url %}
+                <a href="{{ page.next.url }}" title="{{ page.next.title }}" style="text-align: right;">Next Post <i
+                        class="fas fa-angle-double-right"></i></a>
+                {% endif %}
+            </section>
         </div>
 
         <!-- Footer -->

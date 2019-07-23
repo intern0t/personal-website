@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 <div class="container-blog-header">
-    <h1><i class="fas fa-archive"></i>
+    <h1><i class="fas fa-user"></i>
     <span>About</span>
     </h1>
 </div>
