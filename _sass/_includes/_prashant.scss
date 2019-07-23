@@ -362,6 +362,7 @@ body {
 
 							.post-title {
 								margin: $defaultFontSize 0;
+								align-self: flex-start;
 
 								i {
 									font-size: $defaultFontSize * 1.8;
